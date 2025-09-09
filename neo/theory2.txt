@@ -1,0 +1,1 @@
+theory2=[theory1, (compiles-with lean4 )]

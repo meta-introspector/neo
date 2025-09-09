@@ -1,0 +1,1 @@
+theory3=[apply, llm, [(splice-paste-write-biosemiosis-output-prove-execute-trace-demonstrate-tape theory [2,1,42]) ]

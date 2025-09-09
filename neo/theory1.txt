@@ -1,0 +1,1 @@
+theory1=[theory42,will(rewrite(itself,with(llm))*42)]
