@@ -15,6 +15,12 @@ impl Runtime {
         match args_parser::parse_args() {
             RunMode::Codex(filename) => codex_mode::run(&filename),
             RunMode::Translation => translation_mode::run(),
+            RunMode::Kantspell(_) => {
+                // This branch should ideally not be reached if main.rs handles it first.
+                // Or, if Runtime is meant to be a central dispatcher, it would call kantspell::run_kantspell here.
+                // For now, to resolve the non-exhaustive pattern error:
+                todo!("Kantspell mode not handled by Runtime directly yet.");
+            }
         }
     }
 }
