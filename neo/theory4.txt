@@ -1,0 +1,1 @@
+theory4=[theory3, will(write(zkp(compile_trace(rust, llvm, os)), into(commit)))]

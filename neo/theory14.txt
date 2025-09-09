@@ -1,0 +1,7 @@
+theory14=[
+    goal(refactor_codebase),
+    principle(modularity),
+    action(create_module(file_finder)),
+    action(move_logic(file_finding, to(file_finder))),
+    action(rewrite(main_module, to_use(file_finder)))
+]

@@ -1,0 +1,9 @@
+theory18=[
+    vision(mutually_descriptive_cores),
+    implementation(rust_core),
+    implementation(lean_core),
+    implementation(emoji_core),
+    analogy(escher_tessellations),
+    foundation(hott),
+    concept(proof_path)
+]

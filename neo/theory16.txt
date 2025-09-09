@@ -1,0 +1,7 @@
+theory16=[
+    goal(extreme_refactoring),
+    principle(granular_modularity),
+    rule(one_file_per_function),
+    rule(one_file_per_type),
+    action(restructure_project(into_many_small_files))
+]

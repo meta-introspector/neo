@@ -1,0 +1,7 @@
+theory20=[
+    project(foucaults_pendulum_program),
+    input(text_corpus),
+    goal(find_conceptual_connections),
+    technique(graph_database),
+    output(graph_of_connections)
+]

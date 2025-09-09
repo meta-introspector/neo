@@ -1,0 +1,7 @@
+theory12=[
+    goal(create_translator(emoji, lean)),
+    technique(lean_macros),
+    goal(lift_translator(lean, rust)),
+    technique(extraction),
+    status(extraction_simulated)
+]

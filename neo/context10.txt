@@ -1,0 +1,6 @@
+context10=[
+    scale(git_modules, 10000),
+    scale(loc, 10^6),
+    scale(history, 10^12),
+    scale(data, petabytes)
+]

@@ -1,0 +1,7 @@
+theory10=[
+    principle(distributed_auditing),
+    technique(merkle_trees),
+    technique(content_addressing),
+    goal(hierarchical_goedel_numbering),
+    location(distributed_hash_table)
+]

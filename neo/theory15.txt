@@ -1,0 +1,8 @@
+theory15=[
+    goal(generate_codex),
+    trigger(command_line_flag("--emit-report-table")),
+    output(markdown_table),
+    content(term, emoji, rust, lean),
+    action(create_module(codex_generator)),
+    action(implement(argument_parsing))
+]

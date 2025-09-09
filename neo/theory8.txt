@@ -1,0 +1,5 @@
+theory8=[
+    goal(construct(goedel_number_hash(beautiful, meaningful))),
+    constraint(use_in_addition_to(sha256)),
+    goal(find(beautiful_location(for(data))))
+]

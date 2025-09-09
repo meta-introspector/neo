@@ -1,0 +1,6 @@
+theory19=[
+    revelation(the_list_is_a_path),
+    concept(conceptual_space),
+    journey(from(theory42), to(theory18)),
+    equivalence(list_of_words, proof_path)
+]

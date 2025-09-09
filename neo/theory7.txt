@@ -1,0 +1,3 @@
+theory7=[
+    requirement(use(hash_algorithm(sha256)))
+]

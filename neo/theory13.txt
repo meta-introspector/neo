@@ -1,0 +1,10 @@
+theory13=[
+    goal(translate_all_theories),
+    source(theories_txt),
+    engine(rust),
+    target(emojis),
+    target(lean4),
+    target(rust),
+    action(enhance(translator)),
+    action(demonstrate(full_translation_table))
+]

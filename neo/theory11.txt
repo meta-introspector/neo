@@ -1,0 +1,7 @@
+theory11=[
+    action(simulate(distributed_system)),
+    action(model(module, as(struct))),
+    action(implement(merkle_tree_generation)),
+    action(implement(hierarchical_goedel_formula)),
+    action(output(simulation_trace))
+]

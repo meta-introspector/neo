@@ -1,0 +1,6 @@
+theory17=[
+    vision(theory_as_code),
+    goal(minimize_rust_kernel),
+    principle(theory_runtime),
+    future_state(write(theory), implies(execute(theory)))
+]

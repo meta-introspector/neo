@@ -1,0 +1,7 @@
+theory6=[
+    action(load_theories([4, 5])),
+    action(implement(theory4, as(generate_build_audit))),
+    action(capture(build_log, llvm_ir)),
+    action(write(file("build_audit.txt"))),
+    action(commit(file("build_audit.txt"), with_hash))
+]

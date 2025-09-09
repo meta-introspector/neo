@@ -1,0 +1,1 @@
+theory5=[meta_instruction(plan(theory)), equivalence(theory_language, emojis, rust, lean)]
