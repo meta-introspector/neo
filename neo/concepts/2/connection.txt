@@ -17,3 +17,4 @@ related
 links
 users
 relates
+direct
