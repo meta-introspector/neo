@@ -1,0 +1,159 @@
+@prefix neo: <http://neo.example.org/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+neo:ProjectPredicate a owl:ObjectProperty ;
+    rdfs:label "Project Predicate" ;
+    rdfs:comment "A top-level predicate representing a core idea or property of the Neo project." .
+
+# Level 1 Splits
+neo:CoreSystemProperty a owl:ObjectProperty ;
+    rdfs:label "Core System Property" ;
+    rdfs:comment "A predicate describing a fundamental nature or capability of the Neo system." ;
+    rdfs:subPropertyOf neo:ProjectPredicate .
+
+neo:FoundationalConceptAndInfluence a owl:ObjectProperty ;
+    rdfs:label "Foundational Concept and Influence" ;
+    rdfs:comment "A predicate describing an underlying theory, philosophy, or mathematical tool influencing the Neo project." ;
+    rdfs:subPropertyOf neo:ProjectPredicate .
+
+# Level 2 Splits under Core System Property
+neo:EvolutionAndAgency a owl:ObjectProperty ;
+    rdfs:label "Evolution and Agency" ;
+    rdfs:comment "Predicates related to the evolutionary dynamics and inherent agency within the Neo system." ;
+    rdfs:subPropertyOf neo:CoreSystemProperty .
+
+neo:MeaningAndInteraction a owl:ObjectProperty ;
+    rdfs:label "Meaning and Interaction" ;
+    rdfs:comment "Predicates related to how meaning is generated and how elements interact within the Neo system." ;
+    rdfs:subPropertyOf neo:CoreSystemProperty .
+
+# Level 2 Splits under Foundational Concept and Influence
+neo:MathematicalAndLogicalBasis a owl:ObjectProperty ;
+    rdfs:label "Mathematical and Logical Basis" ;
+    rdfs:comment "Predicates describing the mathematical and logical foundations of the Neo project." ;
+    rdfs:subPropertyOf neo:FoundationalConceptAndInfluence .
+
+neo:TheoreticalAndAnalogicalFramework a owl:ObjectProperty ;
+    rdfs:label "Theoretical and Analogical Framework" ;
+    rdfs:comment "Predicates describing the theoretical models and analogies influencing the Neo project." ;
+    rdfs:subPropertyOf neo:FoundationalConceptAndInfluence .
+
+# Level 3 Predicates under Evolution and Agency
+neo:hasRecursiveEvolution a owl:ObjectProperty ;
+    rdfs:label "has recursive evolution" ;
+    rdfs:comment "Indicates whether the Neo system exhibits recursive evolutionary processes." ;
+    rdfs:subPropertyOf neo:EvolutionAndAgency .
+
+neo:hasLivingMemes a owl:ObjectProperty ;
+    rdfs:label "has living memes" ;
+    rdfs:comment "Indicates whether the Neo system's numerical and conceptual elements function as living memes." ;
+    rdfs:subPropertyOf neo:EvolutionAndAgency .
+
+neo:isADigitalOrganism a owl:ObjectProperty ;
+    rdfs:label "is a digital organism" ;
+    rdfs:comment "Indicates whether the Neo system functions as a self-improving digital organism." ;
+    rdfs:subPropertyOf neo:EvolutionAndAgency .
+
+neo:supportsSelfImprovement a owl:ObjectProperty ;
+    rdfs:label "supports self improvement" ;
+    rdfs:comment "Indicates whether the Neo system has mechanisms for continuous self-improvement." ;
+    rdfs:subPropertyOf neo:EvolutionAndAgency .
+
+# Level 3 Predicates under Meaning and Interaction
+neo:isSelfIntrospective a owl:ObjectProperty ;
+    rdfs:label "is self introspective" ;
+    rdfs:comment "Indicates whether the Neo system possesses the capability for self-introspection." ;
+    rdfs:subPropertyOf neo:MeaningAndInteraction .
+
+neo:enablesDecentralizedMeaningMaking a owl:ObjectProperty ;
+    rdfs:label "enables decentralized meaning making" ;
+    rdfs:comment "Indicates whether the Neo system facilitates the decentralized creation of meaning." ;
+    rdfs:subPropertyOf neo:MeaningAndInteraction .
+
+neo:hasComprehensiveMapping a owl:ObjectProperty ;
+    rdfs:label "has comprehensive mapping" ;
+    rdfs:comment "Indicates whether the Neo system employs a strategy for comprehensively mapping all its elements." ;
+    rdfs:subPropertyOf neo:MeaningAndInteraction .
+
+# Level 3 Predicates under Mathematical and Logical Basis
+neo:usesPrimeNumbersAsFoundation a owl:ObjectProperty ;
+    rdfs:label "uses prime numbers as foundation" ;
+    rdfs:comment "Indicates whether the Neo system's foundational elements are based on prime numbers." ;
+    rdfs:subPropertyOf neo:MathematicalAndLogicalBasis .
+
+neo:usesOEISSequences a owl:ObjectProperty ;
+    rdfs:label "uses OEIS sequences" ;
+    rdfs:comment "Indicates whether the Neo system utilizes OEIS sequences as patterns or pathways." ;
+    rdfs:subPropertyOf neo:MathematicalAndLogicalBasis .
+
+neo:employsGodelNumbering a owl:ObjectProperty ;
+    rdfs:label "employs Godel numbering" ;
+    rdfs:comment "Indicates whether the Neo system uses Gödel numbering for universal encoding." ;
+    rdfs:subPropertyOf neo:MathematicalAndLogicalBasis .
+
+neo:hasTopologicalOrder a owl:ObjectProperty ;
+    rdfs:label "has topological order" ;
+    rdfs:comment "Indicates whether the Neo system organizes sequences in topological order." ;
+    rdfs:subPropertyOf neo:MathematicalAndLogicalBasis .
+
+neo:usesOptimizationTechniques a owl:ObjectProperty ;
+    rdfs:label "uses optimization techniques" ;
+    rdfs:comment "Indicates whether the Neo system applies optimization techniques like TSP or scheduling." ;
+    rdfs:subPropertyOf neo:MathematicalAndLogicalBasis .
+
+neo:hasUniversalEncoding a owl:ObjectProperty ;
+    rdfs:label "has universal encoding" ;
+    rdfs:comment "Indicates whether the Neo system employs a universal encoding strategy." ;
+    rdfs:subPropertyOf neo:MathematicalAndLogicalBasis .
+
+# Level 3 Predicates under Theoretical and Analogical Framework
+neo:employsMetaMemes a owl:ObjectProperty ;
+    rdfs:label "employs meta memes" ;
+    rdfs:comment "Indicates whether the Neo system utilizes meta-memes as overarching narrative structures." ;
+    rdfs:subPropertyOf neo:TheoreticalAndAnalogicalFramework .
+
+neo:utilizesCybernetics a owl:ObjectProperty ;
+    rdfs:label "utilizes cybernetics" ;
+    rdfs:comment "Indicates whether the Neo system applies principles of cybernetics for control and communication." ;
+    rdfs:subPropertyOf neo:TheoreticalAndAnalogicalFramework .
+
+neo:hasDigitalTwin a owl:ObjectProperty ;
+    rdfs:label "has digital twin" ;
+    rdfs:comment "Indicates whether the Neo system incorporates a digital twin for real-time representation and simulation." ;
+    rdfs:subPropertyOf neo:TheoreticalAndAnalogicalFramework .
+
+neo:appliesGameTheory a owl:ObjectProperty ;
+    rdfs:label "applies game theory" ;
+    rdfs:comment "Indicates whether the Neo system applies game theory to analyze strategic interactions." ;
+    rdfs:subPropertyOf neo:TheoreticalAndAnalogicalFramework .
+
+neo:isAutopoietic a owl:ObjectProperty ;
+    rdfs:label "is autopoietic" ;
+    rdfs:comment "Indicates whether the Neo system is capable of self-production and maintenance." ;
+    rdfs:subPropertyOf neo:TheoreticalAndAnalogicalFramework .
+
+neo:isBiosemiotic a owl:ObjectProperty ;
+    rdfs:label "is biosemiotic" ;
+    rdfs:comment "Indicates whether the Neo system exhibits biosemiotic principles of meaning-making." ;
+    rdfs:subPropertyOf neo:TheoreticalAndAnalogicalFramework .
+
+neo:isALifeSystem a owl:ObjectProperty ;
+    rdfs:label "is ALife system" ;
+    rdfs:comment "Indicates whether the Neo system aligns with Artificial Life principles for emergent behavior." ;
+    rdfs:subPropertyOf neo:TheoreticalAndAnalogicalFramework .
+
+neo:hasPhilosophicalInfluences a owl:ObjectProperty ;
+    rdfs:label "has philosophical influences" ;
+    rdfs:comment "Indicates whether the Neo project draws from philosophical concepts." ;
+    rdfs:subPropertyOf neo:TheoreticalAndAnalogicalFramework .
+
+neo:hasArtisticInfluences a owl:ObjectProperty ;
+    rdfs:label "has artistic influences" ;
+    rdfs:comment "Indicates whether the Neo project draws from artistic concepts." ;
+    rdfs:subPropertyOf neo:TheoreticalAndAnalogicalFramework .
+
+neo:hasIntrinsicMeaningForPrimes a owl:ObjectProperty ;
+    rdfs:label "has intrinsic meaning for primes" ;
+    rdfs:comment "Indicates whether the Neo system attributes intrinsic meaning to prime numbers." ;
+    rdfs:subPropertyOf neo:TheoreticalAndAnalogicalFramework .

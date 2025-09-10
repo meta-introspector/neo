@@ -9,3 +9,7 @@ edition = "2021"
 sha2 = "0.10.8"
 walkdir = "2.5.0"
 unicode-segmentation = "1.1.0"
+
+[[bin]]
+name = "calculate_zos"
+path = "src/calculate_zos.rs"
