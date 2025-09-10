@@ -17,3 +17,4 @@ translate
 replace
 map
 mapped
+mappings

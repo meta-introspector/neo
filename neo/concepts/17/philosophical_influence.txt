@@ -1,3 +1,4 @@
 kant
 heidegger
 foucault
+peirce
