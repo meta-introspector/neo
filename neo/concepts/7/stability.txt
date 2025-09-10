@@ -1,0 +1,9 @@
+const
+static
+constant
+strong
+traditional
+robust
+consistency
+strength
+stable

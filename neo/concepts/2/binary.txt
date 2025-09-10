@@ -1,0 +1,5 @@
+digital
+boolean
+two
+bipartite
+binary

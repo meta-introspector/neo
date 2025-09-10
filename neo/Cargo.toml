@@ -13,3 +13,11 @@ unicode-segmentation = "1.1.0"
 [[bin]]
 name = "calculate_zos"
 path = "src/calculate_zos.rs"
+
+[[bin]]
+name = "neo_equation"
+path = "src/neo_equation.rs"
+
+[[bin]]
+name = "conceptual_resonance_sum"
+path = "src/conceptual_resonance_sum.rs"

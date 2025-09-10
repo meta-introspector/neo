@@ -1,0 +1,5 @@
+termux
+landscape
+context
+world
+environment

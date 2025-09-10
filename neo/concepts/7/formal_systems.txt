@@ -1,0 +1,16 @@
+owl
+formal
+lean
+logic
+mathematical
+hott
+formally
+polynomial
+logical
+metacoq
+algebra
+tarski
+xsd
+theorem
+theorems
+mathematics

@@ -1,0 +1,15 @@
+type
+label
+tokentype
+properties
+rusttype
+types
+class
+traits
+enumvalue
+enum
+classes
+rustenum
+property
+categories
+category
