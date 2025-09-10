@@ -4,3 +4,4 @@ ideas
 theoretical
 idea
 conceptually
+thoughts

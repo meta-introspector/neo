@@ -17,3 +17,4 @@ hasconcept
 have
 istokentype
 hasparameter
+relatestoconcept
