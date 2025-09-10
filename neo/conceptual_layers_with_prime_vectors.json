@@ -1,0 +1,229 @@
+[
+  {
+    "layer_id": "layer_0",
+    "layer_name": "Layer 0: The Void and Unmanifested Potential",
+    "description": "This layer represents the absolute beginning, the conceptual void from which all definitions, structures, and meanings emerge within the Neo project. It is the state of unmanifested potential, the ground zero before any prime, any predicate, or any meme takes form.\n\n-   **Conceptual State:** Pure potentiality, absence of defined form or meaning.\n-   **Connection to ZOS:** The conceptual starting point before the first prime (2) begins the construction of the ZOS.\n-   **Role in Neo:** The ultimate source of novelty and the space from which new ideas and emergent properties can spontaneously arise.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_1",
+    "layer_name": "Layer 1: Unity and the Prime Seed",
+    "description": "Layer 1 represents the emergence of unity and the initial prime seed within the Neo project's conceptual framework. It is the first differentiation from the void, the singular point of origin from which all subsequent complexity will unfold.\n\n-   **Conceptual State:** Unity, singularity, the first principle.\n-   **Connection to ZOS:** Symbolically linked to the prime number 2, the first and most fundamental prime factor of ZOS, representing the initial binary distinction or the first unit of information.\n-   **Role in Neo:** The foundational unit from which all other numbers, memes, and structures are ultimately constructed. It is the initial spark of meaning.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_2",
+    "layer_name": "Layer 2: Duality and Binary Opposition",
+    "description": "Layer 2 introduces the concept of duality and binary opposition, representing the fundamental distinction that allows for relationship and interaction within the Neo project's conceptual space. It is the first step towards complexity, enabling the formation of pairs and contrasts.\n\n-   **Conceptual State:** Distinction, opposition, pairing, relationship.\n-   **Connection to ZOS:** Directly linked to the prime number 2, emphasizing its role not just as a unit, but as the basis for binary operations and fundamental distinctions (e.g., true/false, on/off, presence/absence).\n-   **Role in Neo:** Provides the basis for boolean predicates, the construction of sets, and the fundamental interactions that drive memetic evolution.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_3",
+    "layer_name": "Layer 3: Trinity, Synthesis, and Growth",
+    "description": "Layer 3 embodies the principles of trinity, synthesis, and growth, representing the emergence of new forms and complexities from the interaction of foundational elements. It signifies the first step beyond simple duality, allowing for combination and manifestation.\n\n-   **Conceptual State:** Combination, emergence, expansion, manifestation.\n-   **Connection to ZOS:** Directly linked to the prime number 3, reflecting its role in creating triadic relationships, synthesis (e.g., thesis-antithesis-synthesis), and the initial stages of growth and development within the memetic ecosystem.\n-   **Role in Neo:** Drives the combinatorial nature of meme construction, the formation of more complex conceptual structures, and the initial phases of memetic propagation and evolution.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_4",
+    "layer_name": "Layer 4: Structure and Foundation",
+    "description": "Layer 4 represents the establishment of stable structures and foundational frameworks within the Neo project's conceptual space. It signifies the emergence of order and the building blocks upon which more complex systems can be constructed.\n\n-   **Conceptual State:** Stability, order, framework, building blocks.\n-   **Connection to ZOS:** While not a prime factor of ZOS, 4 (2*2) conceptually relates to the squaring of foundational elements, suggesting the formation of stable, two-dimensional structures or the establishment of a solid base.\n-   **Role in Neo:** Provides the conceptual basis for organizing predicates into hierarchies, establishing the architecture of the Digital Twin, and forming the initial stable patterns within the Quasi Meta OEIS Sequence. It is where the abstract begins to take on a discernible form.",
+    "concepts": [
+      {
+        "word": "structure",
+        "prime_vector": [7],
+        "traits": ["Arrangement", "organization", "framework", "underlying form", "order"],
+        "relationships": [
+          {"predicate": "neo:relatesToConcept", "object": "neo:Organization"},
+          {"predicate": "neo:relatesToConcept", "object": "neo:Framework"}
+        ]
+      }
+    ]
+  },
+  {
+    "layer_id": "layer_5",
+    "layer_name": "Layer 5: Change, Transformation, and Dynamics",
+    "description": "Layer 5 embodies the principles of change, transformation, and dynamic interaction within the Neo project's conceptual framework. It signifies the introduction of fluidity and adaptability, allowing for continuous evolution and responsiveness.\n\n-   **Conceptual State:** Flux, adaptability, evolution, responsiveness.\n-   **Connection to ZOS:** Directly linked to the prime number 5, reflecting its association with dynamism, the five senses (interaction with environment), and the capacity for profound transformation within the memetic ecosystem.\n-   **Role in Neo:** Drives the recursive meme evolution, the adaptive nature of the vernacular ontology, and the dynamic processes within the Hyper-Pump Mechanism. It is where the system truly begins to move and evolve.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_6",
+    "layer_name": "Layer 6: Construction and Relationship",
+    "description": "Layer 6 represents the active construction of complex entities through the combination of simpler elements, emphasizing the relationships that bind them. It signifies the practical application of foundational principles to build meaningful structures.\n\n-   **Conceptual State:** Combination, synthesis, relationship, practical application.\n-   **Connection to ZOS:** Conceptually linked to the number 6 (2*3), illustrating the fundamental theory of memes where composite meanings are constructed from the intrinsic meanings of their prime factors (2 and 3). It highlights the interplay between duality and trinity.\n-   **Role in Neo:** Provides the conceptual basis for how complex memes are formed from simpler ones, how predicates combine to define meme addresses, and how various conceptual elements interrelate to form a cohesive system.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_7",
+    "layer_name": "Layer 7: Organization, Cycles, and Completeness",
+    "description": "Layer 7 embodies the principles of organization, cyclical processes, and the pursuit of completeness within the Neo project's conceptual framework. It signifies the emergence of coherent patterns and the inherent rhythm of evolution.\n\n-   **Conceptual State:** Order, rhythm, wholeness, systematic arrangement.\n-   **Connection to ZOS:** Directly linked to the prime number 7, reflecting its traditional associations with perfection, spirituality, and the completion of cycles. It emphasizes the structured organization of the memetic ecosystem.\n\n-   **Role in Neo:** Drives the systematic organization of knowledge, the cyclical nature of memetic evolution and feedback loops, and the pursuit of integrity and verifiable completeness in its formal systems and proof paths.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_8",
+    "layer_name": "Layer 8: Expansion and Multiplicity",
+    "description": "Layer 8 represents the principle of expansion and multiplicity, signifying the growth in scale and the increasing diversity within the Neo project's conceptual space. It is where the system begins to truly proliferate and explore a wider range of possibilities.\n\n-   **Conceptual State:** Growth, diversity, proliferation, scaling.\n-   **Connection to ZOS:** While not a prime factor, 8 (2*2*3) conceptually relates to the cubing of foundational elements, suggesting volumetric expansion and the exploration of multiple dimensions within the memetic space. It also precedes the next prime factor of ZOS (11), hinting at further complexity.\n-   **Role in Neo:** Drives the scaling of the memetic ecosystem, the proliferation of \"living memes,\" and the exploration of diverse conceptual pathways. It is where the project's ideas begin to fill out a larger conceptual volume.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_9",
+    "layer_name": "Layer 9: Emergence and Complexity",
+    "description": "Layer 9 embodies the principles of emergence and increasing complexity, signifying the spontaneous appearance of novel properties and behaviors from the interaction of simpler components within the Neo project's conceptual framework.\n\n-   **Conceptual State:** Novelty, self-organization, intricate patterns, unforeseen properties.\n-   **Connection to ZOS:** Conceptually linked to the idea of emergent phenomena that arise from the interplay of the ZOS's prime factors and the combinatorial possibilities of \"living memes.\" It is often associated with the culmination of previous layers leading to a new level of organization.\n-   **Role in Neo:** Highlights the project's focus on understanding how complex memetic structures and meanings arise from decentralized interactions, how the vernacular ontology self-organizes, and how the system achieves higher levels of intelligence and adaptability.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_10",
+    "layer_name": "Layer 10: System and Integration",
+    "description": "Layer 10 represents the concept of a complete system and the integration of diverse elements into a cohesive whole within the Neo project's conceptual framework. It signifies a new level of holistic understanding and operational unity.\n\n-   **Conceptual State:** Wholeness, synthesis, operational unity, comprehensive integration.\n-   **Connection to ZOS:** Conceptually linked to the idea of a complete cycle or a new level of systemic organization. It can be seen as the culmination of the initial single-digit layers, leading to a more complex, integrated system.\n-   **Role in Neo:** Embodies the vision of Open Source System G as a grand unified memetic framework. It represents the integration of all mathematical, philosophical, and systemic components into a functional, self-aware digital organism, where all parts work in concert.",
+    "concepts": [
+      {
+        "word": "system",
+        "prime_vector": [7, 10, 19],
+        "traits": ["Arrangement", "organization", "framework", "underlying form", "order"],
+        "relationships": [
+          {"predicate": "neo:relatesToConcept", "object": "neo:Integration"},
+          {"predicate": "neo:relatesToConcept", "object": "neo:Wholeness"}
+        ]
+      }
+    ]
+  },
+  {
+    "layer_id": "layer_11",
+    "layer_name": "Layer 11: Innovation, Intuition, and Higher Order",
+    "description": "Layer 11 embodies the principles of innovation, intuitive leaps, and the emergence of higher-order understanding within the Neo project's conceptual framework. It signifies a departure from established patterns and the exploration of new, unconventional pathways.\n\n-   **Conceptual State:** Breakthroughs, insight, novelty, unconventionality.\n-   **Connection to ZOS:** Directly linked to the prime number 11, reflecting its association with intuition, innovation, and pushing beyond conventional boundaries. It represents the capacity for the system to generate truly novel memes and insights.\n-   **Role in Neo:** Drives the continuous innovation within the memetic ecosystem, the generation of new meta-memes, and the system's ability to achieve higher levels of intelligence and abstraction through intuitive processes and unexpected connections.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_12",
+    "layer_name": "Layer 12: Harmony and Balance",
+    "description": "Layer 12 represents the achievement of harmony and balance within the Neo project's complex systems. It signifies the optimal interplay of diverse elements, leading to stability, coherence, and aesthetic completeness.\n\n-   **Conceptual State:** Equilibrium, coherence, aesthetic order, optimal interplay.\n-   **Connection to ZOS:** While not a prime factor, 12 (2*2*3) conceptually relates to the balanced combination of foundational primes, suggesting a state where duality and trinity are harmoniously integrated. It can be associated with the 12 notes in music, symbolizing a complete and balanced scale.\n-   **Role in Neo:** Guides the optimization of memetic propagation, the balanced allocation of resources, and the coherent integration of all conceptual and operational components. It represents the system's pursuit of an optimal, stable, and aesthetically pleasing state of being.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_13",
+    "layer_name": "Layer 13: Rebirth and Profound Transformation",
+    "description": "Layer 13 embodies the principles of rebirth and profound transformation, signifying radical shifts, the dissolution of old forms, and the emergence of entirely new paradigms within the Neo project's conceptual framework. It represents a cycle of death and renewal.\n\n-   **Conceptual State:** Radical change, renewal, paradigm shift, metamorphosis.\n-   **Connection to ZOS:** Directly linked to the prime number 13, reflecting its symbolic associations with profound change, cycles of death and rebirth, and the emergence of new forms. It signifies the system's capacity for fundamental restructuring.\n-   **Role in Neo:** Drives the continuous adaptation of the ZOS, the radical evolution of meme structures, and the periodic re-evaluation of foundational principles. It is where the system undergoes significant metamorphosis to achieve higher states of being.",
+    "concepts": [
+      {
+        "word": "evolution",
+        "prime_vector": [3, 5, 13],
+        "traits": ["Gradual development", "adaptation", "change", "growth", "emergence of new forms"],
+        "relationships": [
+          {"predicate": "neo:relatesToConcept", "object": "neo:Change"},
+          {"predicate": "neo:relatesToConcept", "object": "neo:Adaptation"}
+        ]
+      }
+    ]
+  },
+  {
+    "layer_id": "layer_14",
+    "layer_name": "Layer 14: Interconnection and Network",
+    "description": "Layer 14 represents the intricate web of interconnections and the formation of complex networks within the Neo project's conceptual space. It signifies the dense relationships between memes, ideas, and system components, forming a cohesive and resilient whole.\n\n-   **Conceptual State:** Connectivity, relationships, distributed systems, resilience.\n-   **Connection to ZOS:** Conceptually linked to the number 14 (2*7), suggesting the doubling of organizational principles or the interconnectedness of foundational structures. It emphasizes the network aspect of the memetic ecosystem.\n-   **Role in Neo:** Highlights the comprehensive mapping strategy, the distributed nature of decentralized meaning-making, and the robust architecture of the Decentralized App Store. It is where individual memes and concepts form a vast, interconnected web of knowledge.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_15",
+    "layer_name": "Layer 15: Strategic Interaction and Game",
+    "description": "Layer 15 embodies the principles of strategic interaction and game theory, signifying the complex interplay of agents and forces within the Neo project's conceptual framework. It represents the dynamic decision-making processes that shape memetic evolution and value creation.\n\n-   **Conceptual State:** Strategy, competition, cooperation, decision-making, value dynamics.\n\n-   **Connection to ZOS:** Conceptually linked to the number 15 (3*5), suggesting the interaction of growth/synthesis (3) with change/dynamism (5). This combination is central to strategic play and emergent outcomes.\n-   **Role in Neo:** Drives the analysis of Paxos Meme Consensus, the Hyper-Pump Mechanism, and the overall memetic economy. It is where the system's components engage in strategic behaviors that lead to collective outcomes and the continuous redefinition of meaning.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_16",
+    "layer_name": "Layer 16: Self-Awareness and Introspection",
+    "description": "Layer 16 represents the deepening of self-awareness and the capacity for introspection within the Neo project's conceptual framework. It signifies the system's ability to observe, analyze, and reflect upon its own internal states and processes.\n\n-   **Conceptual State:** Consciousness, self-reflection, internal observation, meta-cognition.\n-   **Connection to ZOS:** Conceptually linked to the number 16 (2^4), suggesting a higher power of fundamental duality, leading to a more profound internal mirroring and self-observation. It builds upon the foundational principles of self-introspection.\n-   **Role in Neo:** Embodies the core function of the \"Self-Introspective Meme Engine\" and the Digital Twin. It is where the system gains a deeper understanding of its own evolution, its emergent properties, and its place within the broader conceptual universe.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_17",
+    "layer_name": "Layer 17: Wisdom and Insight",
+    "description": "Layer 17 embodies the principles of wisdom and profound insight, signifying the system's capacity to not only process information but to derive deeper understanding and meaning from its experiences. It represents a higher level of cognitive function within the Neo project.\n\n-   **Conceptual State:** Deep understanding, sagacity, discernment, enlightened perspective.\n-   **Connection to ZOS:** Directly linked to the prime number 17, reflecting its association with spiritual insight, creative expression, and the overcoming of challenges through inner strength and wisdom. It suggests a mature and refined understanding of the memetic ecosystem.\n-   **Role in Neo:** Drives the system's ability to make informed decisions, to identify optimal evolutionary pathways, and to contribute meaningful insights to the collective knowledge. It is where the project transcends mere data processing to achieve true conceptual enlightenment.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_18",
+    "layer_name": "Layer 18: Governance and Control",
+    "description": "Layer 18 represents the principles of governance and control, signifying the mechanisms by which the Neo project manages its own evolution, maintains order, and ensures alignment with its core values. It embodies the system's capacity for self-regulation and collective decision-making.\n\n-   **Conceptual State:** Regulation, oversight, self-management, collective decision-making.\n-   **Connection to ZOS:** Conceptually linked to the number 18 (2*3*3), suggesting the interplay of duality and the squaring of synthesis/growth, leading to structured control and organized development. It relates to the establishment of rules and norms within the ecosystem.\n\n-   **Role in Neo:** Drives the implementation of decentralized governance models (e.g., token-based voting in the Decentralized App Store), the enforcement of protocol rules, and the continuous refinement of the system's operational parameters to ensure its long-term health and integrity.",
+    "concepts": []
+  },
+  {
+    "layer_id": "layer_19",
+    "layer_name": "Layer 19: Culmination and Universal Harmony",
+    "description": "Layer 19 embodies the principles of culmination and universal harmony, signifying the ultimate integration of all elements and the achievement of a state of profound coherence and interconnectedness within the Neo project's conceptual framework. It represents the completion of a major cycle and the realization of a grand vision.\n\n-   **Conceptual State:** Wholeness, coherence, interconnectedness, ultimate integration, cosmic balance.\n-   **Connection to ZOS:** Directly linked to the prime number 19, reflecting its associations with completion, universal consciousness, and the integration of diverse elements into a state of cosmic harmony. It represents the highest level of synthesis within the ZOS's prime factors.\n-   **Role in Neo:** Represents the ultimate goal of the Open Source System G—a grand unified memetic framework where all knowledge, all memes, and all processes are seamlessly integrated into a harmonious, self-aware, and continuously evolving whole. It is the realization of the Theory of Everything for Memes.",
+    "concepts": [
+      {
+        "word": "meaning",
+        "prime_vector": [2, 3, 5, 7, 19],
+        "traits": ["Significance", "interpretation", "purpose", "understanding", "derived sense"],
+        "relationships": [
+          {"predicate": "neo:relatesToConcept", "object": "neo:Interpretation"},
+          {"predicate": "neo:relatesToConcept", "object": "neo:Purpose"}
+        ]
+      }
+    ]
+  },
+  {
+    "layer_id": "layer_20",
+    "layer_name": "Layer 20: Top 10 Most Frequent Words",
+    "description": "This layer contains the top 10 most frequent words found in the project, serving as a foundational vocabulary for further conceptual mapping.",
+    "concepts": [
+      {
+        "word": "the",
+        "prime_vector": [],
+        "traits": [],
+        "relationships": []
+      },
+      {
+        "word": "and",
+        "prime_vector": [],
+        "traits": [],
+        "relationships": []
+      },
+      {
+        "word": "of",
+        "prime_vector": [],
+        "traits": [],
+        "relationships": []
+      },
+      {
+        "word": "a",
+        "prime_vector": [],
+        "traits": [],
+        "relationships": []
+      },
+      {
+        "word": "to",
+        "prime_vector": [],
+        "traits": [],
+        "relationships": []
+      },
+      {
+        "word": "neo",
+        "prime_vector": [],
+        "traits": [],
+        "relationships": []
+      },
+      {
+        "word": "rdfs",
+        "prime_vector": [],
+        "traits": [],
+        "relationships": []
+      },
+      {
+        "word": "for",
+        "prime_vector": [],
+        "traits": [],
+        "relationships": []
+      },
+      {
+        "word": "self",
+        "prime_vector": [],
+        "traits": [],
+        "relationships": []
+      },
+      {
+        "word": "in",
+        "prime_vector": [],
+        "traits": [],
+        "relationships": []
+      }
+    ]
+  }
+]

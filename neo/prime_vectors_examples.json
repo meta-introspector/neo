@@ -1,0 +1,22 @@
+[
+  {
+    "word": "Evolution",
+    "conceptual_prime_vector": [3, 5, 13],
+    "notes": "Gradual development, adaptation, change, growth, emergence of new forms."
+  },
+  {
+    "word": "Structure",
+    "conceptual_prime_vector": [7],
+    "notes": "Arrangement, organization, framework, underlying form, order."
+  },
+  {
+    "word": "Meaning",
+    "conceptual_prime_vector": [2, 3, 5, 7, 19],
+    "notes": "Significance, interpretation, purpose, understanding, derived sense."
+  },
+  {
+    "word": "System",
+    "conceptual_prime_vector": [7, 2, 5, 19],
+    "notes": "A set of interacting or interdependent components forming an integrated whole; an organized scheme or method. The conceptual vector is derived from its prime resonances."
+  }
+]

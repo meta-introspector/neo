@@ -1,0 +1,6 @@
+patterns
+order
+numbering
+pattern
+organizing
+lattice
