@@ -21,6 +21,10 @@ impl Runtime {
                 // For now, to resolve the non-exhaustive pattern error:
                 todo!("Kantspell mode not handled by Runtime directly yet.");
             }
+            RunMode::InterpretEmojiPoem(_) => { // Added InterpretEmojiPoem arm
+                // Similar to Kantspell, main.rs handles this.
+                todo!("InterpretEmojiPoem mode not handled by Runtime directly yet.");
+            }
         }
     }
 }

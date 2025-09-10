@@ -2,7 +2,7 @@
 // This module is responsible for finding theory files, as per the refactoring in theory14.
 
 use std::fs;
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 
 pub fn find_theory_files() -> Vec<PathBuf> {
     let mut theory_files = vec![];

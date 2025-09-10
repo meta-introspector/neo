@@ -1,6 +1,6 @@
 // src/kantspell.rs
 use std::fs;
-use std::io::{self, Read, Write};
+use std::io::{Read, Write};
 use std::path::{Path, PathBuf};
 use walkdir::WalkDir;
 

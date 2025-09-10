@@ -1,0 +1,739 @@
+@prefix : <http://meta-introspector.org/ontology/neo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://meta-introspector.org/ontology/neo/rust_code_instances> rdf:type owl:Ontology ;
+    rdfs:comment "Instances of Rust code elements (structs, enums, functions, fields) within the Meta-Introspector ontology." .
+
+# TokenType Enum
+:Enum_TokenType rdf:type :RustEnum ;
+    rdfs:label "TokenType" ;
+    :hasVariant :EnumValue_TheoryKeyword,
+                :EnumValue_Number,
+                :EnumValue_Eq,
+                :EnumValue_LBracket,
+                :EnumValue_RBracket,
+                :EnumValue_LParen,
+                :EnumValue_RParen,
+                :EnumValue_Comma,
+                :EnumValue_Identifier,
+                :EnumValue_Eof,
+                :EnumValue_Illegal .
+
+# TokenType Variants
+:EnumValue_TheoryKeyword rdf:type :EnumValue ;
+    rdfs:label "TheoryKeyword" ;
+    :isTokenType :TokenType_TheoryKeyword .
+
+:EnumValue_Number rdf:type :EnumValue ;
+    rdfs:label "Number" ;
+    :isTokenType :TokenType_Number .
+
+:EnumValue_Eq rdf:type :EnumValue ;
+    rdfs:label "Eq" ;
+    :isTokenType :TokenType_Eq .
+
+:EnumValue_LBracket rdf:type :EnumValue ;
+    rdfs:label "LBracket" ;
+    :isTokenType :TokenType_LBracket .
+
+:EnumValue_RBracket rdf:type :EnumValue ;
+    rdfs:label "RBracket" ;
+    :isTokenType :TokenType_RBracket .
+
+:EnumValue_LParen rdf:type :EnumValue ;
+    rdfs:label "LParen" ;
+    :isTokenType :TokenType_LParen .
+
+:EnumValue_RParen rdf:type :EnumValue ;
+    rdfs:label "RParen" ;
+    :isTokenType :TokenType_RParen .
+
+:EnumValue_Comma rdf:type :EnumValue ;
+    rdfs:label "Comma" ;
+    :isTokenType :TokenType_Comma .
+
+:EnumValue_Identifier rdf:type :EnumValue ;
+    rdfs:label "Identifier" ;
+    :isTokenType :TokenType_Identifier .
+
+:EnumValue_Eof rdf:type :EnumValue ;
+    rdfs:label "Eof" ;
+    :isTokenType :TokenType_Eof .
+
+:EnumValue_Illegal rdf:type :EnumValue ;
+    rdfs:label "Illegal" ;
+    :isTokenType :TokenType_Illegal .
+
+
+
+# Token Struct
+:Struct_Token rdf:type :RustStruct ;
+    rdfs:label "Token" ;
+    :hasField :Field_Token_token_type,
+                :Field_Token_literal .
+
+# Token Fields
+:Field_Token_token_type rdf:type :RustField ;
+    rdfs:label "token_type" ;
+    :hasType :TokenType_Type . # Assuming TokenType_Type is a RustType
+
+:Field_Token_literal rdf:type :RustField ;
+    rdfs:label "literal" ;
+    :hasType :RustType_String . # Assuming RustType_String is a RustType
+
+# Lexer Struct
+:Struct_Lexer rdf:type :RustStruct ;
+    rdfs:label "Lexer" ;
+    :hasField :Field_Lexer_input,
+                :Field_Lexer_position,
+                :Field_Lexer_read_position,
+                :Field_Lexer_ch ;
+    :hasMethod :Method_Lexer_new,
+                :Method_Lexer_read_char,
+                :Method_Lexer_skip_whitespace,
+                :Method_Lexer_read_identifier_literal,
+                :Method_Lexer_read_number_literal,
+                :Method_Lexer_next_token .
+
+# Lexer Fields
+:Field_Lexer_input rdf:type :RustField ;
+    rdfs:label "input" ;
+    :hasType :RustType_VecChar . # Assuming RustType_VecChar is a RustType
+
+:Field_Lexer_position rdf:type :RustField ;
+    rdfs:label "position" ;
+    :hasType :RustType_Usize . # Assuming RustType_Usize is a RustType
+
+:Field_Lexer_read_position rdf:type :RustField ;
+    rdfs:label "read_position" ;
+    :hasType :RustType_Usize .
+
+:Field_Lexer_ch rdf:type :RustField ;
+    rdfs:label "ch" ;
+    :hasType :RustType_OptionChar . # Assuming RustType_OptionChar is a RustType
+
+# Lexer Methods
+:Method_Lexer_new rdf:type :RustMethod, :Function ;
+    rdfs:label "new" ;
+    :hasParameter :Parameter_Lexer_new_input ;
+    :hasReturnType :RustType_Self . # Assuming RustType_Self is a RustType
+
+:Parameter_Lexer_new_input rdf:type :Parameter ;
+    rdfs:label "input" ;
+    :hasType :RustType_Str . # Assuming RustType_Str is a RustType
+
+:Method_Lexer_read_char rdf:type :RustMethod, :Function ;
+    rdfs:label "read_char" ;
+    :hasReturnType :RustType_Unit . # Assuming RustType_Unit is a RustType
+
+:Method_Lexer_skip_whitespace rdf:type :RustMethod, :Function ;
+    rdfs:label "skip_whitespace" ;
+    :hasReturnType :RustType_Unit .
+
+:Method_Lexer_read_identifier_literal rdf:type :RustMethod, :Function ;
+    rdfs:label "read_identifier_literal" ;
+    :hasReturnType :RustType_String .
+
+:Method_Lexer_read_number_literal rdf:type :RustMethod, :Function ;
+    rdfs:label "read_number_literal" ;
+    :hasReturnType :RustType_String .
+
+:Method_Lexer_next_token rdf:type :RustMethod, :Function ;
+    rdfs:label "next_token" ;
+    :hasReturnType :RustType_Token . # Assuming RustType_Token is a RustType
+
+# new_token function
+:Function_new_token rdf:type :Function ;
+    rdfs:label "new_token" ;
+    :hasParameter :Parameter_new_token_token_type,
+                :Parameter_new_token_ch ;
+    :hasReturnType :RustType_Token .
+
+:Parameter_new_token_token_type rdf:type :Parameter ;
+    rdfs:label "token_type" ;
+    :hasType :TokenType_Type .
+
+:Parameter_new_token_ch rdf:type :Parameter ;
+    rdfs:label "ch" ;
+    :hasType :RustType_Char . # Assuming RustType_Char is a RustType
+
+# Common Rust Types (to be defined as individuals of :RustType)
+:RustType_String rdf:type :RustType ; rdfs:label "String" .
+:RustType_VecChar rdf:type :RustType ; rdfs:label "Vec<char>" .
+:RustType_Usize rdf:type :RustType ; rdfs:label "usize" .
+:RustType_OptionChar rdf:type :RustType ; rdfs:label "Option<char>" .
+:RustType_Self rdf:type :RustType ; rdfs:label "Self" .
+:RustType_Str rdf:type :RustType ; rdfs:label "&str" .
+:RustType_Unit rdf:type :RustType ; rdfs:label "()" .
+:RustType_Token rdf:type :RustType ; rdfs:label "Token" .
+:RustType_Char rdf:type :RustType ; rdfs:label "char" .
+:TokenType_Type rdf:type :RustType ; rdfs:label "TokenType" .
+
+# RunMode Enum
+:Enum_RunMode rdf:type :RustEnum ;
+    rdfs:label "RunMode" ;
+    :hasVariant :EnumValue_Codex,
+                :EnumValue_Translation,
+                :EnumValue_Kantspell,
+                :EnumValue_InterpretEmojiPoem .
+
+# RunMode Variants
+:EnumValue_Codex rdf:type :EnumValue ;
+    rdfs:label "Codex" ;
+    :isRunMode :RunMode_Codex .
+
+:EnumValue_Translation rdf:type :EnumValue ;
+    rdfs:label "Translation" ;
+    :isRunMode :RunMode_Translation .
+
+:EnumValue_Kantspell rdf:type :EnumValue ;
+    rdfs:label "Kantspell" ;
+    :isRunMode :RunMode_Kantspell .
+
+:EnumValue_InterpretEmojiPoem rdf:type :EnumValue ;
+    rdfs:label "InterpretEmojiPoem" ;
+    :isRunMode :RunMode_InterpretEmojiPoem .
+
+
+
+# parse_args function
+:Function_parse_args rdf:type :Function ;
+    rdfs:label "parse_args" ;
+    :hasReturnType :RustType_RunMode .
+
+# Common Rust Types (to be defined as individuals of :RustType)
+:RustType_RunMode rdf:type :RustType ; rdfs:label "RunMode" .
+:RustType_PathBuf rdf:type :RustType ; rdfs:label "PathBuf" .
+
+# Crate Instances
+:Crate_Neo rdf:type :Crate ;
+    :hasName "neo" ;
+    :hasVersion "0.1.0" ;
+    :dependsOnCrate :Crate_Sha2,
+                    :Crate_Walkdir,
+                    :Crate_UnicodeSegmentation .
+
+:Crate_Sha2 rdf:type :Crate ;
+    :hasName "sha2" ;
+    :hasVersion "0.10.8" .
+
+:Crate_Walkdir rdf:type :Crate ;
+    :hasName "walkdir" ;
+    :hasVersion "2.5.0" .
+
+:Crate_UnicodeSegmentation rdf:type :Crate ;
+    :hasName "unicode-segmentation" ;
+    :hasVersion "1.1.0" .
+
+# Directory Instances
+:Directory_Root rdf:type :Directory ;
+    rdfs:label "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/" .
+
+:Directory_Src rdf:type :Directory ;
+    rdfs:label "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/" ;
+    :isInDirectory :Directory_Root .
+
+:Directory_SrcArgsParser rdf:type :Directory ;
+    rdfs:label "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/args_parser/" ;
+    :isInDirectory :Directory_Src .
+
+:Directory_SrcModes rdf:type :Directory ;
+    rdfs:label "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/modes/" ;
+    :isInDirectory :Directory_Src .
+
+:Directory_SrcParserModules rdf:type :Directory ;
+    rdfs:label "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/parser_modules/" ;
+    :isInDirectory :Directory_Src .
+
+:Directory_SrcRuntime rdf:type :Directory ;
+    rdfs:label "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/runtime/" ;
+    :isInDirectory :Directory_Src .
+
+:Directory_SrcTranslator rdf:type :Directory ;
+    rdfs:label "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/translator/" ;
+    :isInDirectory :Directory_Src .
+
+:Directory_SrcTypes rdf:type :Directory ;
+    rdfs:label "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/types/" ;
+    :isInDirectory :Directory_Src .
+
+# File Instances
+:File_CargoToml rdf:type :File ;
+    rdfs:label "Cargo.toml" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/Cargo.toml" ;
+    :hasExtension "toml" ;
+    :isInDirectory :Directory_Root .
+
+:File_CodexMd rdf:type :File ;
+    rdfs:label "codex.md" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/codex.md" ;
+    :hasExtension "md" ;
+    :isInDirectory :Directory_Root .
+
+:File_Context10Txt rdf:type :File ;
+    rdfs:label "context10.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/context10.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_EmojiCoreMd rdf:type :File ;
+    rdfs:label "EMOJI_CORE.md" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/EMOJI_CORE.md" ;
+    :hasExtension "md" ;
+    :isInDirectory :Directory_Root .
+
+:File_EmojiPoemKeyMd rdf:type :File ;
+    rdfs:label "emoji_poem_key.md" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/emoji_poem_key.md" ;
+    :hasExtension "md" ;
+    :isInDirectory :Directory_Root .
+
+:File_EmojiPoemMd rdf:type :File ;
+    rdfs:label "emoji_poem.md" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/emoji_poem.md" ;
+    :hasExtension "md" ;
+    :isInDirectory :Directory_Root .
+
+:File_EmojiTranslatorLean rdf:type :File ;
+    rdfs:label "emoji_translator.lean" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/emoji_translator.lean" ;
+    :hasExtension "lean" ;
+    :isInDirectory :Directory_Root .
+
+:File_LeanCoreMd rdf:type :File ;
+    rdfs:label "LEAN_CORE.md" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/LEAN_CORE.md" ;
+    :hasExtension "md" ;
+    :isInDirectory :Directory_Root .
+
+:File_LlmTxt rdf:type :File ;
+    rdfs:label "llm.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/llm.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_ProjectSummaryPoemMd rdf:type :File ;
+    rdfs:label "project_summary_poem.md" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/project_summary_poem.md" ;
+    :hasExtension "md" ;
+    :isInDirectory :Directory_Root .
+
+:File_RustCoreMd rdf:type :File ;
+    rdfs:label "RUST_CORE.md" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/RUST_CORE.md" ;
+    :hasExtension "md" ;
+    :isInDirectory :Directory_Root .
+
+:File_RustEmojiMapMd rdf:type :File ;
+    rdfs:label "rust_emoji_map.md" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/rust_emoji_map.md" ;
+    :hasExtension "md" ;
+    :isInDirectory :Directory_Root .
+
+:File_Step1Txt rdf:type :File ;
+    rdfs:label "step1.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/step1.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_TaskMd rdf:type :File ;
+    rdfs:label "task.md" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/task.md" ;
+    :hasExtension "md" ;
+    :isInDirectory :Directory_Root .
+
+:File_ThePathMd rdf:type :File ;
+    rdfs:label "THE_PATH.md" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/THE_PATH.md" ;
+    :hasExtension "md" ;
+    :isInDirectory :Directory_Root .
+
+:File_TheoryToEmojiMd rdf:type :File ;
+    rdfs:label "theory_to_emoji.md" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory_to_emoji.md" ;
+    :hasExtension "md" ;
+    :isInDirectory :Directory_Root .
+
+:File_TheoryLean rdf:type :File ;
+    rdfs:label "theory.lean" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory.lean" ;
+    :hasExtension "lean" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory1Txt rdf:type :File ;
+    rdfs:label "theory1.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory1.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory10Txt rdf:type :File ;
+    rdfs:label "theory10.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory10.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory11Txt rdf:type :File ;
+    rdfs:label "theory11.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory11.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory12Txt rdf:type :File ;
+    rdfs:label "theory12.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory12.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory13Txt rdf:type :File ;
+    rdfs:label "theory13.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory13.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory14Txt rdf:type :File ;
+    rdfs:label "theory14.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory14.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory15Txt rdf:type :File ;
+    rdfs:label "theory15.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory15.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory16Txt rdf:type :File ;
+    rdfs:label "theory16.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory16.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory17Txt rdf:type :File ;
+    rdfs:label "theory17.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory17.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory18Txt rdf:type :File ;
+    rdfs:label "theory18.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory18.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory19Txt rdf:type :File ;
+    rdfs:label "theory19.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory19.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory2Txt rdf:type :File ;
+    rdfs:label "theory2.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory2.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory20Txt rdf:type :File ;
+    rdfs:label "theory20.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory20.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory3Txt rdf:type :File ;
+    rdfs:label "theory3.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory3.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory4Txt rdf:type :File ;
+    rdfs:label "theory4.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory4.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory42Txt rdf:type :File ;
+    rdfs:label "theory42.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory42.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory5Txt rdf:type :File ;
+    rdfs:label "theory5.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory5.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory6Txt rdf:type :File ;
+    rdfs:label "theory6.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory6.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory7Txt rdf:type :File ;
+    rdfs:label "theory7.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory7.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory8Txt rdf:type :File ;
+    rdfs:label "theory8.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory8.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_Theory9Txt rdf:type :File ;
+    rdfs:label "theory9.txt" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/theory9.txt" ;
+    :hasExtension "txt" ;
+    :isInDirectory :Directory_Root .
+
+:File_SrcAstRs rdf:type :File ;
+    rdfs:label "ast.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/ast.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_Src .
+
+:File_SrcCodexGeneratorRs rdf:type :File ;
+    rdfs:label "codex_generator.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/codex_generator.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_Src .
+
+:File_SrcEmojiInterpreterRs rdf:type :File ;
+    rdfs:label "emoji_interpreter.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/emoji_interpreter.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_Src .
+
+:File_SrcEmojiTranslatorRs rdf:type :File ;
+    rdfs:label "emoji_translator.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/emoji_translator.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_Src .
+
+:File_SrcFileFinderRs rdf:type :File ;
+    rdfs:label "file_finder.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/file_finder.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_Src .
+
+:File_SrcKantspellRs rdf:type :File ;
+    rdfs:label "kantspell.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/kantspell.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_Src .
+
+:File_SrcLexerRs rdf:type :File ;
+    rdfs:label "lexer.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/lexer.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_Src .
+
+:File_SrcMainRs rdf:type :File ;
+    rdfs:label "main.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/main.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_Src .
+
+:File_SrcParserRs rdf:type :File ;
+    rdfs:label "parser.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/parser.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_Src .
+
+:File_SrcArgsParserModRs rdf:type :File ;
+    rdfs:label "mod.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/args_parser/mod.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcArgsParser .
+
+:File_SrcModesCodexModeRs rdf:type :File ;
+    rdfs:label "codex_mode.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/modes/codex_mode.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcModes .
+
+:File_SrcModesModRs rdf:type :File ;
+    rdfs:label "mod.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/modes/mod.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcModes .
+
+:File_SrcModesTranslationModeRs rdf:type :File ;
+    rdfs:label "translation_mode.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/modes/translation_mode.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcModes .
+
+:File_SrcParserModulesCurrentTokenIsRs rdf:type :File ;
+    rdfs:label "current_token_is.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/parser_modules/current_token_is.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcParserModules .
+
+:File_SrcParserModulesExpectPeekRs rdf:type :File ;
+    rdfs:label "expect_peek.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/parser_modules/expect_peek.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcParserModules .
+
+:File_SrcParserModulesNewRs rdf:type :File ;
+    rdfs:label "new.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/parser_modules/new.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcParserModules .
+
+:File_SrcParserModulesNextTokenRs rdf:type :File ;
+    rdfs:label "next_token.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/parser_modules/next_token.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcParserModules .
+
+:File_SrcParserModulesParseTheoryStatementRs rdf:type :File ;
+    rdfs:label "parse_theory_statement.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/parser_modules/parse_theory_statement.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcParserModules .
+
+:File_SrcParserModulesPeekErrorRs rdf:type :File ;
+    rdfs:label "peek_error.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/parser_modules/peek_error.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcParserModules .
+
+:File_SrcParserModulesPeekTokenIsRs rdf:type :File ;
+    rdfs:label "peek_token_is.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/parser_modules/peek_token_is.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcParserModules .
+
+:File_SrcRuntimeModRs rdf:type :File ;
+    rdfs:label "mod.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/runtime/mod.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcRuntime .
+
+:File_SrcTranslatorModRs rdf:type :File ;
+    rdfs:label "mod.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/translator/mod.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcTranslator .
+
+:File_SrcTypesModRs rdf:type :File ;
+    rdfs:label "mod.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/types/mod.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcTypes .
+
+:File_SrcTypesTranslationsRs rdf:type :File ;
+    rdfs:label "translations.rs" ;
+    :hasPath "/data/data/com.termux.nix/files/home/pick-up-nix/source/github/meta-introspector/neo/neo/src/types/translations.rs" ;
+    :hasExtension "rs" ;
+    :isInDirectory :Directory_SrcTypes .
+
+# Parser Struct
+:Struct_Parser rdf:type :RustStruct ;
+    rdfs:label "Parser" ;
+    :hasField :Field_Parser_lexer,
+                :Field_Parser_current_token,
+                :Field_Parser_peek_token,
+                :Field_Parser_errors ;
+    :hasMethod :Method_Parser_new,
+                :Method_Parser_next_token,
+                :Method_Parser_expect_peek,
+                :Method_Parser_current_token_is,
+                :Method_Parser_peek_token_is,
+                :Method_Parser_peek_error,
+                :Method_Parser_parse_theory_statement,
+                :Method_Parser_parse_expression,
+                :Method_Parser_errors .
+
+# Parser Fields
+:Field_Parser_lexer rdf:type :RustField ;
+    rdfs:label "lexer" ;
+    :hasType :RustType_Lexer .
+
+:Field_Parser_current_token rdf:type :RustField ;
+    rdfs:label "current_token" ;
+    :hasType :RustType_Token .
+
+:Field_Parser_peek_token rdf:type :RustField ;
+    rdfs:label "peek_token" ;
+    :hasType :RustType_Token .
+
+:Field_Parser_errors rdf:type :RustField ;
+    rdfs:label "errors" ;
+    :hasType :RustType_VecString .
+
+# Parser Methods (from src/parser.rs and src/parser_modules/)
+:Method_Parser_new rdf:type :RustMethod, :Function ;
+    rdfs:label "new" ;
+    :hasParameter :Parameter_Parser_new_lexer ;
+    :hasReturnType :RustType_Self .
+
+:Parameter_Parser_new_lexer rdf:type :Parameter ;
+    rdfs:label "lexer" ;
+    :hasType :RustType_Lexer .
+
+:Method_Parser_next_token rdf:type :RustMethod, :Function ;
+    rdfs:label "next_token" ;
+    :hasReturnType :RustType_Unit .
+
+:Method_Parser_expect_peek rdf:type :RustMethod, :Function ;
+    rdfs:label "expect_peek" ;
+    :hasParameter :Parameter_Parser_expect_peek_token_type ;
+    :hasReturnType :RustType_Bool .
+
+:Parameter_Parser_expect_peek_token_type rdf:type :Parameter ;
+    rdfs:label "token_type" ;
+    :hasType :TokenType_Type .
+
+:Method_Parser_current_token_is rdf:type :RustMethod, :Function ;
+    rdfs:label "current_token_is" ;
+    :hasParameter :Parameter_Parser_current_token_is_token_type ;
+    :hasReturnType :RustType_Bool .
+
+:Parameter_Parser_current_token_is_token_type rdf:type :Parameter ;
+    rdfs:label "token_type" ;
+    :hasType :TokenType_Type_Ref .
+
+:Method_Parser_peek_token_is rdf:type :RustMethod, :Function ;
+    rdfs:label "peek_token_is" ;
+    :hasParameter :Parameter_Parser_peek_token_is_token_type ;
+    :hasReturnType :RustType_Bool .
+
+:Parameter_Parser_peek_token_is_token_type rdf:type :Parameter ;
+    rdfs:label "token_type" ;
+    :hasType :TokenType_Type_Ref .
+
+:Method_Parser_peek_error rdf:type :RustMethod, :Function ;
+    rdfs:label "peek_error" ;
+    :hasParameter :Parameter_Parser_peek_error_token_type ;
+    :hasReturnType :RustType_Unit .
+
+:Parameter_Parser_peek_error_token_type rdf:type :Parameter ;
+    rdfs:label "token_type" ;
+    :hasType :TokenType_Type .
+
+:Method_Parser_parse_theory_statement rdf:type :RustMethod, :Function ;
+    rdfs:label "parse_theory_statement" ;
+    :hasReturnType :RustType_OptionTheoryStatement .
+
+:Method_Parser_parse_expression rdf:type :RustMethod, :Function ;
+    rdfs:label "parse_expression" ;
+    :hasReturnType :RustType_OptionExpression .
+
+:Method_Parser_errors rdf:type :RustMethod, :Function ;
+    rdfs:label "errors" ;
+    :hasReturnType :RustType_SliceString .
+
+# Common Rust Types (to be defined as individuals of :RustType)
+:RustType_Lexer rdf:type :RustType ; rdfs:label "Lexer" .
+:RustType_VecString rdf:type :RustType ; rdfs:label "Vec<String>" .
+:RustType_Bool rdf:type :RustType ; rdfs:label "bool" .
+:RustType_OptionTheoryStatement rdf:type :RustType ; rdfs:label "Option<TheoryStatement>" .
+:RustType_OptionExpression rdf:type :RustType ; rdfs:label "Option<Expression>" .
+:RustType_SliceString rdf:type :RustType ; rdfs:label "&[String]" .
+:TokenType_Type_Ref rdf:type :RustType ; rdfs:label "&TokenType" .

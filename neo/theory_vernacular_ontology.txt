@@ -1,0 +1,1 @@
+theory21=[generate(vernacular_ontologies, from(program_memory)), reconstruct(with(enums, functions, types)), expose(program_self_model), map(vernacular_ontology, onto(our_ontology, with(hott)))]

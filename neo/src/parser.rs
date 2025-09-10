@@ -80,13 +80,21 @@ impl Parser {
         self.next_token(); // Consume number
 
         // Expect '='
-        if !self.expect_peek(TokenType::Eq) {
+        if !self.current_token_is(TokenType::Eq) {
+            self.errors.push(format!(
+                "Expected '=', got {:?} instead",
+                self.current_token.token_type
+            ));
             return None;
         }
         self.next_token(); // Consume '='
 
         // Expect '['
-        if !self.expect_peek(TokenType::LBracket) {
+        if !self.current_token_is(TokenType::LBracket) {
+            self.errors.push(format!(
+                "Expected '[', got {:?} instead",
+                self.current_token.token_type
+            ));
             return None;
         }
         self.next_token(); // Consume '['
@@ -100,25 +108,19 @@ impl Parser {
                 return None; // Error in parsing expression
             }
 
-            // Changed to pass a reference
-            if self.peek_token_is(&TokenType::Comma) {
+            if self.current_token_is(TokenType::Comma) {
                 self.next_token(); // Consume comma
-                self.next_token(); // Advance to next concept
-            } else if !self.peek_token_is(&TokenType::RBracket) { // Changed to pass a reference
-                self.errors.push(format!(
-                    "Expected ',' or ']', got {:?} instead",
-                    self.peek_token.token_type
-                ));
+            } else if self.current_token_is(TokenType::RBracket) {
+                break; // Exit loop, we found the end of the list
+            } else {
+                self.errors.push("Expected ']'".to_string());
                 return None;
             }
         }
 
         // Expect ']'
         if !self.current_token_is(TokenType::RBracket) {
-            self.errors.push(format!(
-                "Expected ']', got {:?} instead",
-                self.current_token.token_type
-            ));
+            self.errors.push("Expected ']'".to_string());
             return None;
         }
         self.next_token(); // Consume ']'
@@ -142,23 +144,17 @@ impl Parser {
                         return None; // Error in parsing argument
                     }
 
-                    // Changed to pass a reference
-                    if self.peek_token_is(&TokenType::Comma) {
+                    if self.current_token_is(TokenType::Comma) {
                         self.next_token(); // Consume comma
-                        self.next_token(); // Advance to next argument
-                    } else if !self.peek_token_is(&TokenType::RParen) { // Changed to pass a reference
-                        self.errors.push(format!(
-                            "Expected ',' or ')', got {:?} instead",
-                            self.peek_token.token_type
-                        ));
+                    } else if self.current_token_is(TokenType::RParen) {
+                        break; // Exit loop, we found the end of the argument list
+                    } else {
+                        self.errors.push("Expected ')'".to_string());
                         return None;
                     }
                 }
                 if !self.current_token_is(TokenType::RParen) {
-                    self.errors.push(format!(
-                        "Expected ')', got {:?} instead",
-                        self.current_token.token_type
-                    ));
+                    self.errors.push("Expected ')'".to_string());
                     return None;
                 }
                 self.next_token(); // Consume ')'

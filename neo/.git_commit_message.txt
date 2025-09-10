@@ -1,0 +1,14 @@
+feat: Add theoretical explorations on System G and open source
+
+Introduces a series of new theory files exploring the concept of System G (Gödel numbering system) applied to the open-source ecosystem. These files delve into:
+
+- Multi-modal equivalence of statements (OWL, math, emojis, Rust, Lean)
+- Diagonalization of open source
+- Practicalities and challenges of System G in open source
+- Human-machine interface considerations
+- Societal and economic impacts
+- Accessibility of formal tools (e.g., Metacoq for "normies")
+- Decentralized, emoji-driven, AI-formalized component marketplaces
+- Programs as self-proving emoji strings with ZKPs
+- Governance and evolution of such decentralized app stores
+- Philosophical and existential implications of self-proving emoji programs

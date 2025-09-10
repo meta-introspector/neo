@@ -1,0 +1,96 @@
+@prefix : <http://meta-introspector.org/ontology/neo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://meta-introspector.org/ontology/neo/lean_instances> rdf:type owl:Ontology ;
+    rdfs:comment "Instances of Lean concepts and their mappings within the Meta-Introspector ontology." .
+
+# Instances for Lean Representations from codex.md
+:LeanRepresentation_T_AUDIT rdf:type :LeanRepresentation ;
+    rdfs:label "T_AUDIT" ;
+    :hasLeanRepresentationString "T_AUDIT" .
+
+:LeanRepresentation_T_COMMIT rdf:type :LeanRepresentation ;
+    rdfs:label "T_COMMIT" ;
+    :hasLeanRepresentationString "T_COMMIT" .
+
+:LeanRepresentation_T_DISTRIBUTED rdf:type :LeanRepresentation ;
+    rdfs:label "T_DISTRIBUTED" ;
+    :hasLeanRepresentationString "T_DISTRIBUTED" .
+
+:LeanRepresentation_T_EMOJI rdf:type :LeanRepresentation ;
+    rdfs:label "T_EMOJI" ;
+    :hasLeanRepresentationString "T_EMOJI" .
+
+:LeanRepresentation_T_EQUIVALENCE rdf:type :LeanRepresentation ;
+    rdfs:label "T_EQUIVALENCE" ;
+    :hasLeanRepresentationString "T_EQUIVALENCE" .
+
+:LeanRepresentation_T_GOEDEL_NUMBER rdf:type :LeanRepresentation ;
+    rdfs:label "T_GOEDEL_NUMBER" ;
+    :hasLeanRepresentationString "T_GOEDEL_NUMBER" .
+
+:LeanRepresentation_T_HASH rdf:type :LeanRepresentation ;
+    rdfs:label "T_HASH" ;
+    :hasLeanRepresentationString "T_HASH" .
+
+:LeanRepresentation_T_HOTT rdf:type :LeanRepresentation ;
+    rdfs:label "T_HOTT" ;
+    :hasLeanRepresentationString "T_HOTT" .
+
+:LeanRepresentation_T_LEAN rdf:type :LeanRepresentation ;
+    rdfs:label "T_LEAN" ;
+    :hasLeanRepresentationString "T_LEAN" .
+
+:LeanRepresentation_T_MERKLE_TREE rdf:type :LeanRepresentation ;
+    rdfs:label "T_MERKLE_TREE" ;
+    :hasLeanRepresentationString "T_MERKLE_TREE" .
+
+:LeanRepresentation_T_MODULE rdf:type :LeanRepresentation ;
+    rdfs:label "T_MODULE" ;
+    :hasLeanRepresentationString "T_MODULE" .
+
+:LeanRepresentation_T_PLAN rdf:type :LeanRepresentation ;
+    rdfs:label "T_PLAN" ;
+    :hasLeanRepresentationString "T_PLAN" .
+
+:LeanRepresentation_T_PROOF_PATH rdf:type :LeanRepresentation ;
+    rdfs:label "T_PROOF_PATH" ;
+    :hasLeanRepresentationString "T_PROOF_PATH" .
+
+:LeanRepresentation_T_RUST rdf:type :LeanRepresentation ;
+    rdfs:label "T_RUST" ;
+    :hasLeanRepresentationString "T_RUST" .
+
+:LeanRepresentation_T_THEORY rdf:type :LeanRepresentation ;
+    rdfs:label "T_THEORY" ;
+    :hasLeanRepresentationString "T_THEORY" .
+
+:LeanRepresentation_T_WRITE rdf:type :LeanRepresentation ;
+    rdfs:label "T_WRITE" ;
+    :hasLeanRepresentationString "T_WRITE" .
+
+:LeanRepresentation_T_ZKP rdf:type :LeanRepresentation ;
+    rdfs:label "T_ZKP" ;
+    :hasLeanRepresentationString "T_ZKP" .
+
+# Link Concepts to their Lean Representations
+:Concept_Audit :hasLeanRepresentationString "T_AUDIT" .
+:Concept_Commit :hasLeanRepresentationString "T_COMMIT" .
+:Concept_Distributed :hasLeanRepresentationString "T_DISTRIBUTED" .
+:Concept_Emoji :hasLeanRepresentationString "T_EMOJI" .
+:Concept_Equivalence :hasLeanRepresentationString "T_EQUIVALENCE" .
+:Concept_GoedelNumber :hasLeanRepresentationString "T_GOEDEL_NUMBER" .
+:Concept_Hash :hasLeanRepresentationString "T_HASH" .
+:Concept_Hott :hasLeanRepresentationString "T_HOTT" .
+:Concept_Lean :hasLeanRepresentationString "T_LEAN" .
+:Concept_MerkleTree :hasLeanRepresentationString "T_MERKLE_TREE" .
+:Concept_Module :hasLeanRepresentationString "T_MODULE" .
+:Concept_Plan :hasLeanRepresentationString "T_PLAN" .
+:Concept_ProofPath :hasLeanRepresentationString "T_PROOF_PATH" .
+:Concept_Rust :hasLeanRepresentationString "T_RUST" .
+:Concept_Theory :hasLeanRepresentationString "T_THEORY" .
+:Concept_Write :hasLeanRepresentationString "T_WRITE" .
+:Concept_ZKP :hasLeanRepresentationString "T_ZKP" .

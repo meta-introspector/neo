@@ -1,11 +1,12 @@
 // src/args_parser/mod.rs
 use std::env;
-use std::path::PathBuf; // Added for PathBuf
+use std::path::PathBuf;
 
 pub enum RunMode {
     Codex(String),
     Translation,
-    Kantspell(PathBuf), // Added Kantspell mode
+    Kantspell(PathBuf),
+    InterpretEmojiPoem(PathBuf), // Added InterpretEmojiPoem mode
 }
 
 pub fn parse_args() -> RunMode {
@@ -24,8 +25,18 @@ pub fn parse_args() -> RunMode {
             return RunMode::Kantspell(path);
         } else {
             eprintln!("Error: --kantspell requires a path argument.");
-            // Fallback or exit, for now, let's default to Translation
-            return RunMode::Translation;
+            return RunMode::Translation; // Fallback
+        }
+    }
+
+    // Handle --interpret-emoji-poem
+    if let Some(arg_index) = args.iter().position(|a| a == "--interpret-emoji-poem") {
+        if let Some(path_str) = args.get(arg_index + 1) {
+            let path = PathBuf::from(path_str);
+            return RunMode::InterpretEmojiPoem(path);
+        } else {
+            eprintln!("Error: --interpret-emoji-poem requires a path argument.");
+            return RunMode::Translation; // Fallback
         }
     }
 

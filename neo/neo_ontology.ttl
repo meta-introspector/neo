@@ -1,0 +1,401 @@
+@prefix : <http://meta-introspector.org/ontology/neo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://meta-introspector.org/ontology/neo> rdf:type owl:Ontology ;
+    rdfs:comment "Ontology for the Meta-Introspector project, defining concepts and relationships inspired by Rust traits." .
+
+# Classes
+:Concept rdf:type owl:Class ;
+    rdfs:comment "Represents a high-level concept within the Meta-Introspector project." .
+
+:RustEntity rdf:type owl:Class ;
+    rdfs:comment "Represents a Rust-specific entity, such as a type, function, or module." .
+
+:Emoji rdf:type owl:Class ;
+    rdfs:comment "Represents an emoji used within the project's multi-modal vocabulary." .
+
+:Function rdf:type owl:Class ;
+    rdfs:comment "Represents a function or method in the Rust codebase." .
+
+:EnumValue rdf:type owl:Class ;
+    rdfs:comment "Represents a variant of an enum in the Rust codebase." .
+
+    rdfs:comment "Represents a specific operational mode of the Meta-Introspector application. Modeled as a disjoint union of its variants." ;
+    owl:disjointUnionOf (
+        :RunMode_Codex
+        :RunMode_Translation
+        :RunMode_Kantspell
+        :RunMode_InterpretEmojiPoem
+    ) .
+
+# Define each variant as a subclass of RunMode
+:RunMode_Codex rdf:type owl:Class ; rdfs:subClassOf :RunMode ; rdfs:label "Codex" .
+:RunMode_Translation rdf:type owl:Class ; rdfs:subClassOf :RunMode ; rdfs:label "Translation" .
+:RunMode_Kantspell rdf:type owl:Class ; rdfs:subClassOf :RunMode ; rdfs:label "Kantspell" .
+:RunMode_InterpretEmojiPoem rdf:type owl:Class ; rdfs:subClassOf :RunMode ; rdfs:label "InterpretEmojiPoem" .
+
+:Expression rdf:type owl:Class ;
+    rdfs:comment "Represents an expression in the abstract syntax tree. Modeled as a disjoint union of its variants, including recursive calls." ;
+    owl:disjointUnionOf (
+        :Expression_Identifier
+        :Expression_Call
+    ) .
+
+# Define each variant as a subclass of Expression
+:Expression_Identifier rdf:type owl:Class ; rdfs:subClassOf :Expression ; rdfs:label "Identifier" .
+:Expression_Call rdf:type owl:Class ; rdfs:subClassOf :Expression ; rdfs:label "Call" .
+
+:TheoryConcept rdf:type owl:Class ;
+    rdfs:comment "Represents a theory concept from the Lean side. Modeled as a disjoint union of its variants." ;
+    owl:disjointUnionOf (
+        :TheoryConcept_IsDistributedAuditSystem
+        :TheoryConcept_HasMerkleTree
+    ) .
+
+# Define each variant as a subclass of TheoryConcept
+:TheoryConcept_IsDistributedAuditSystem rdf:type owl:Class ; rdfs:subClassOf :TheoryConcept ; rdfs:label "IsDistributedAuditSystem" .
+:TheoryConcept_HasMerkleTree rdf:type owl:Class ; rdfs:subClassOf :TheoryConcept ; rdfs:label "HasMerkleTree" .
+
+# Object Properties (Relationships between individuals)
+
+# Define each variant as a subclass of RunMode
+:RunMode_Codex rdf:type owl:Class ; rdfs:subClassOf :RunMode ; rdfs:label "Codex" .
+:RunMode_Translation rdf:type owl:Class ; rdfs:subClassOf :RunMode ; rdfs:label "Translation" .
+:RunMode_Kantspell rdf:type owl:Class ; rdfs:subClassOf :RunMode ; rdfs:label "Kantspell" .
+:RunMode_InterpretEmojiPoem rdf:type owl:Class ; rdfs:subClassOf :RunMode ; rdfs:label "InterpretEmojiPoem" .
+
+    :TokenType rdf:type owl:Class ;
+    rdfs:comment "Represents a type of lexical token identified by the lexer. Modeled as a disjoint union of its variants." ;
+    owl:disjointUnionOf (
+        :TokenType_TheoryKeyword
+        :TokenType_Number
+        :TokenType_Eq
+        :TokenType_LBracket
+        :TokenType_RBracket
+        :TokenType_LParen
+        :TokenType_RParen
+        :TokenType_Comma
+        :TokenType_Identifier
+        :TokenType_Eof
+        :TokenType_Illegal
+    ) .
+
+# Define each variant as a subclass of TokenType
+:TokenType_TheoryKeyword rdf:type owl:Class ; rdfs:subClassOf :TokenType ; rdfs:label "TheoryKeyword" .
+:TokenType_Number rdf:type owl:Class ; rdfs:subClassOf :TokenType ; rdfs:label "Number" .
+:TokenType_Eq rdf:type owl:Class ; rdfs:subClassOf :TokenType ; rdfs:label "Eq" .
+:TokenType_LBracket rdf:type owl:Class ; rdfs:subClassOf :TokenType ; rdfs:label "LBracket" .
+:TokenType_RBracket rdf:type owl:Class ; rdfs:subClassOf :TokenType ; rdfs:label "RBracket" .
+:TokenType_LParen rdf:type owl:Class ; rdfs:subClassOf :TokenType ; rdfs:label "LParen" .
+:TokenType_RParen rdf:type owl:Class ; rdfs:subClassOf :TokenType ; rdfs:label "RParen" .
+:TokenType_Comma rdf:type owl:Class ; rdfs:subClassOf :TokenType ; rdfs:label "Comma" .
+:TokenType_Identifier rdf:type owl:Class ; rdfs:subClassOf :TokenType ; rdfs:label "Identifier" .
+:TokenType_Eof rdf:type owl:Class ; rdfs:subClassOf :TokenType ; rdfs:label "Eof" .
+:TokenType_Illegal rdf:type owl:Class ; rdfs:subClassOf :TokenType ; rdfs:label "Illegal" .
+
+:RustStruct rdf:type owl:Class ;
+    rdfs:comment "Represents a struct definition in Rust." .
+
+:RustEnum rdf:type owl:Class ;
+    rdfs:comment "Represents an enum definition in Rust. Can be modeled as an owl:disjointUnionOf its variants." .
+
+:RustField rdf:type owl:Class ;
+    rdfs:comment "Represents a field within a Rust struct." .
+
+:RustMethod rdf:type owl:Class ;
+    rdfs:comment "Represents a method associated with a Rust struct or enum." .
+
+:RustTrait rdf:type owl:Class ;
+    rdfs:comment "Represents a Rust trait or typeclass." .
+
+:File rdf:type owl:Class ;
+    rdfs:comment "Represents a file in the project filesystem." .
+
+:Directory rdf:type owl:Class ;
+    rdfs:comment "Represents a directory in the project filesystem." .
+
+:Crate rdf:type owl:Class ;
+    rdfs:comment "Represents a Rust crate." .
+
+:Parameter rdf:type owl:Class ;
+    rdfs:comment "Represents a parameter of a function or method." .
+
+:RustType rdf:type owl:Class ;
+    rdfs:comment "Represents a general Rust type." .
+
+# Object Properties (Relationships between individuals)
+
+:LeanRepresentation rdf:type owl:Class ;
+    rdfs:comment "Represents a Lean-specific representation of a concept." .
+
+# Object Properties (Relationships between individuals)
+
+:hasEmojiRepresentation rdf:type owl:ObjectProperty ;
+    rdfs:domain :Concept ;
+    rdfs:range :Emoji ;
+    rdfs:comment "Links a concept to its emoji representation." .
+
+:isSubConceptOf rdf:type owl:ObjectProperty ;
+    rdfs:domain :Concept ;
+    rdfs:range :Concept ;
+    rdfs:comment "Indicates that one concept is a sub-concept of another." .
+
+:relatesToConcept rdf:type owl:ObjectProperty ;
+    rdfs:domain :Concept ;
+    rdfs:range :Concept ;
+    rdfs:comment "Indicates a general relationship between two concepts." .
+
+:hasRustRepresentation rdf:type owl:ObjectProperty ;
+    rdfs:domain :Concept ;
+    rdfs:range :RustEntity ;
+    rdfs:comment "Links a concept to its Rust representation." .
+
+:hasFunction rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustEntity ;
+    rdfs:range :Function ;
+    rdfs:comment "Indicates that a Rust entity contains or is associated with a function." .
+
+:isStruct rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustEntity ;
+    rdfs:range :RustStruct ;
+    rdfs:comment "Indicates that a Rust entity is a struct." .
+
+:isEnum rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustEntity ;
+    rdfs:range :RustEnum ;
+    rdfs:comment "Indicates that a Rust entity is an enum." .
+
+:hasMethod rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustEntity ;
+    rdfs:range :RustMethod ;
+    rdfs:comment "Indicates that a Rust entity contains or is associated with a method." .
+
+:hasType rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustEntity ;
+    rdfs:range :RustType ;
+    rdfs:comment "Indicates the Rust type of a Rust entity." .
+
+:hasEmoji rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustEntity ;
+    rdfs:range :Emoji ;
+    rdfs:comment "Links a Rust entity to its associated emoji." .
+
+:representsRustEntity rdf:type owl:ObjectProperty ;
+    rdfs:domain :Emoji ;
+    rdfs:range :RustEntity ;
+    rdfs:comment "Indicates that an emoji represents a specific Rust entity." .
+
+:callsFunction rdf:type owl:ObjectProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :Function ;
+    rdfs:comment "Indicates that an entity calls or invokes a specific function." .
+
+:isCalledBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :Function ;
+    rdfs:range owl:Thing ;
+    rdfs:comment "Indicates that a function is called by another entity." .
+
+:isVariantOf rdf:type owl:ObjectProperty ;
+    rdfs:domain :EnumValue ;
+    rdfs:range :RustEnum ;
+    rdfs:comment "Indicates that an enum variant belongs to a specific Rust enum." .
+
+:processesFile rdf:type owl:ObjectProperty ;
+    rdfs:domain :RunMode ;
+    rdfs:range :File ;
+    rdfs:comment "Indicates that a run mode processes a specific file." .
+
+:isMethodOfStruct rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustMethod ;
+    rdfs:range :RustStruct ;
+    rdfs:comment "Indicates that a method belongs to a specific Rust struct." .
+
+:isMethodOfEnum rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustMethod ;
+    rdfs:range :RustEnum ;
+    rdfs:comment "Indicates that a method belongs to a specific Rust enum." .
+
+:isImplementedByStruct rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustTrait ;
+    rdfs:range :RustStruct ;
+    rdfs:comment "Indicates that a trait is implemented by a specific Rust struct." .
+
+:isImplementedByEnum rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustTrait ;
+    rdfs:range :RustEnum ;
+    rdfs:comment "Indicates that a trait is implemented by a specific Rust enum." .
+
+:containsFile rdf:type owl:ObjectProperty ;
+    rdfs:domain :Directory ;
+    rdfs:range :File ;
+    rdfs:comment "Indicates that a directory contains a specific file." .
+
+:containsDirectory rdf:type owl:ObjectProperty ;
+    rdfs:domain :Directory ;
+    rdfs:range :Directory ;
+    rdfs:comment "Indicates that a directory contains another directory." .
+
+:isSubdirectoryOf rdf:type owl:ObjectProperty ;
+    rdfs:domain :Directory ;
+    rdfs:range :Directory ;
+    rdfs:comment "Indicates that a directory is a subdirectory of another." .
+
+:isDependencyOf rdf:type owl:ObjectProperty ;
+    rdfs:domain :Crate ;
+    rdfs:range :Crate ;
+    rdfs:comment "Indicates that a crate is a dependency of another crate." .
+
+:crateContainsFile rdf:type owl:ObjectProperty ;
+    rdfs:domain :Crate ;
+    rdfs:range :File ;
+    rdfs:comment "Indicates that a crate contains a specific file." .
+
+:isParameterOf rdf:type owl:ObjectProperty ;
+    rdfs:domain :Parameter ;
+    rdfs:range :Function ;
+    rdfs:comment "Indicates that a parameter belongs to a specific function." .
+
+:isTypeOfField rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustType ;
+    rdfs:range :RustField ;
+    rdfs:comment "Indicates that a Rust type is the type of a specific field." .
+
+:isTypeOfParameter rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustType ;
+    rdfs:range :Parameter ;
+    rdfs:comment "Indicates that a Rust type is the type of a specific parameter." .
+
+:isReturnTypeOf rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustType ;
+    rdfs:range :Function ;
+    rdfs:comment "Indicates that a Rust type is the return type of a specific function." .
+
+:representsConcept rdf:type owl:ObjectProperty ;
+    rdfs:domain :LeanRepresentation ;
+    rdfs:range :Concept ;
+    rdfs:comment "Indicates that a Lean representation represents a specific concept." .
+
+:callsFunction rdf:type owl:ObjectProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :Function ;
+    rdfs:comment "Indicates that an entity calls or invokes a specific function." .
+
+:hasVariant rdf:type owl:ObjectProperty ;
+    rdfs:domain :EnumValue ;
+    rdfs:range owl:Thing ; # Can be a literal or another individual depending on the variant
+    rdfs:comment "Links an enum to its specific variant." .
+
+:isRunMode rdf:type owl:ObjectProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :RunMode ;
+    rdfs:comment "Indicates that an entity is a specific operational run mode." .
+
+:isTokenType rdf:type owl:ObjectProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range :TokenType ;
+    rdfs:comment "Indicates that an entity is a specific type of lexical token." .
+
+:isTheoryConcept rdf:type owl:ObjectProperty ;
+    rdfs:domain :EnumValue ;
+    rdfs:range :TheoryConcept ;
+    rdfs:comment "Indicates that an enum variant is a specific theory concept." .
+
+:isTheoryConcept rdf:type owl:ObjectProperty ;
+    rdfs:domain :EnumValue ;
+    rdfs:range :TheoryConcept ;
+    rdfs:comment "Indicates that an enum variant is a specific theory concept." .
+
+:hasField rdf:type owl:ObjectProperty ;
+    rdfs:domain :RustStruct ;
+    rdfs:range :RustField ;
+    rdfs:comment "Links a Rust struct to its fields." .
+
+:hasType rdf:type owl:ObjectProperty ;
+    rdfs:domain owl:Thing ; # Can be a field, parameter, or return value
+    rdfs:range :RustType ;
+    rdfs:comment "Indicates the Rust type of an entity." .
+
+:hasParameter rdf:type owl:ObjectProperty ;
+    rdfs:domain :Function ;
+    rdfs:range :Parameter ;
+    rdfs:comment "Links a function to its parameters." .
+
+:hasReturnType rdf:type owl:ObjectProperty ;
+    rdfs:domain :Function ;
+    rdfs:range :RustType ;
+    rdfs:comment "Indicates the return type of a function." .
+
+:implementsTrait rdf:type owl:ObjectProperty ;
+    rdfs:domain owl:Thing ; # Can be a struct or enum
+    rdfs:range :RustTrait ;
+    rdfs:comment "Indicates that a Rust entity implements a specific trait." .
+
+:hasMethod rdf:type owl:ObjectProperty ;
+    rdfs:domain owl:Thing ; # Can be a struct or enum
+    rdfs:range :RustMethod ;
+    rdfs:comment "Links a Rust struct or enum to its methods." .
+
+:hasPath rdf:type owl:DatatypeProperty ;
+    rdfs:domain :File ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The absolute path of a file." .
+
+:hasExtension rdf:type owl:DatatypeProperty ;
+    rdfs:domain :File ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The file extension." .
+
+:isInDirectory rdf:type owl:ObjectProperty ;
+    rdfs:domain :File ;
+    rdfs:range :Directory ;
+    rdfs:comment "Indicates the directory a file belongs to." .
+
+:hasName rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Crate ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The name of a crate." .
+
+:hasVersion rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Crate ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The version of a crate." .
+
+:dependsOnCrate rdf:type owl:ObjectProperty ;
+    rdfs:domain :Crate ;
+    rdfs:range :Crate ;
+    rdfs:comment "Indicates a dependency on another crate." .
+
+:hasLeanRepresentationString rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Concept ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Links a concept to its Lean representation string." .
+
+:isRecursiveEnum rdf:type owl:DatatypeProperty ;
+    rdfs:domain :RustEnum ;
+    rdfs:range xsd:boolean ;
+    rdfs:comment "Indicates if a Rust enum is recursive (i.e., contains variants that refer to the enum itself)." .
+
+# Datatype Properties (Relationships between individuals and data values)
+
+:hasName rdf:type owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The name of an entity." .
+
+:hasDescription rdf:type owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A textual description of an entity." .
+
+:hasPathValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain :RunMode ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The path argument associated with a run mode." .
+
+:hasNumberValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain :TokenType ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "The integer value associated with a number token type." .

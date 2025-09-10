@@ -32,30 +32,24 @@ impl Lexer {
         let mut lexer = Lexer {
             input: input.chars().collect(),
             position: 0,
-            read_position: 0,
+            read_position: 1, // Corrected: should be 1 initially
             ch: None,
         };
-        lexer.read_char(); // Initialize ch
+        lexer.ch = lexer.input.get(0).cloned(); // Initialize ch to the first character
         lexer
     }
 
     fn read_char(&mut self) {
+        self.position = self.read_position;
         if self.read_position >= self.input.len() {
             self.ch = None;
         } else {
             self.ch = Some(self.input[self.read_position]);
         }
-        self.position = self.read_position;
         self.read_position += 1;
     }
 
-    fn peek_char(&self) -> Option<char> {
-        if self.read_position >= self.input.len() {
-            None
-        } else {
-            Some(self.input[self.read_position])
-        }
-    }
+    
 
     fn skip_whitespace(&mut self) {
         while let Some(c) = self.ch {
@@ -67,72 +61,92 @@ impl Lexer {
         }
     }
 
-    fn read_identifier(&mut self) -> String {
-        let start_pos = self.position;
-        while let Some(c) = self.ch {
+    fn read_identifier_literal(&self) -> String {
+        let mut current_pos = self.position;
+        while current_pos < self.input.len() {
+            let c = self.input[current_pos];
             if c.is_ascii_alphanumeric() || c == '_' {
-                self.read_char();
+                current_pos += 1;
             } else {
                 break;
             }
         }
-        self.input[start_pos..self.position].iter().collect()
+        self.input[self.position..current_pos].iter().collect()
     }
 
-    fn read_number(&mut self) -> String {
-        let start_pos = self.position;
-        while let Some(c) = self.ch {
+    fn read_number_literal(&self) -> String {
+        let mut current_pos = self.position;
+        while current_pos < self.input.len() {
+            let c = self.input[current_pos];
             if c.is_ascii_digit() {
-                self.read_char();
+                current_pos += 1;
             } else {
                 break;
             }
         }
-        self.input[start_pos..self.position].iter().collect()
+        self.input[self.position..current_pos].iter().collect()
     }
 
     pub fn next_token(&mut self) -> Token {
         self.skip_whitespace();
 
-        let token = match self.ch {
-            Some('=') => new_token(TokenType::Eq, '='),
-            Some('[') => new_token(TokenType::LBracket, '['),
-            Some(']') => new_token(TokenType::RBracket, ']'),
-            Some('(') => new_token(TokenType::LParen, '('),
-            Some(')') => new_token(TokenType::RParen, ')'),
-            Some(',') => new_token(TokenType::Comma, ','),
+        let token: Token;
+        match self.ch {
+            Some('=') => { self.read_char(); token = new_token(TokenType::Eq, '='); },
+            Some('[') => { self.read_char(); token = new_token(TokenType::LBracket, '['); },
+            Some(']') => { self.read_char(); token = new_token(TokenType::RBracket, ']'); },
+            Some('(') => { self.read_char(); token = new_token(TokenType::LParen, '('); },
+            Some(')') => { self.read_char(); token = new_token(TokenType::RParen, ')'); },
+            Some(',') => { self.read_char(); token = new_token(TokenType::Comma, ','); },
             Some(c) => {
-                if c.is_ascii_alphabetic() || c == '_' {
-                    let literal = self.read_identifier();
-                    match literal.as_str() {
-                        "theory" => Token {
-                            token_type: TokenType::TheoryKeyword,
-                            literal,
-                        },
-                        _ => Token {
-                            token_type: TokenType::Identifier(literal.clone()),
-                            literal,
-                        },
-                    }
-                } else if c.is_ascii_digit() {
-                    let literal = self.read_number();
-                    let num = literal.parse::<u32>().unwrap_or(0); // Handle potential parsing errors
-                    Token {
+                if c.is_ascii_digit() { // Prioritize numbers
+                    let literal = self.read_number_literal();
+                    let num = literal.parse::<u32>().unwrap_or(0);
+                    let consumed_len = literal.len();
+                    token = Token {
                         token_type: TokenType::Number(num),
                         literal,
+                    };
+                    self.position += consumed_len;
+                    self.read_position = self.position + 1; // Corrected
+                    self.ch = self.input.get(self.position).cloned(); // Update self.ch directly
+                    return token;
+                } else if c.is_ascii_alphabetic() || c == '_' {
+                    let literal = self.read_identifier_literal();
+                    // Check for "theory" keyword followed by a number
+                    if literal.starts_with("theory") && literal.len() > "theory".len() {
+                        let potential_number_str = &literal["theory".len()..];
+                        if potential_number_str.chars().all(|c| c.is_ascii_digit()) {
+                            // It's "theory" followed by a number.
+                            // Return TheoryKeyword, and adjust position for the number to be next.
+                            self.position += "theory".len();
+                            self.read_position = self.position + 1; // Corrected
+                            self.ch = self.input.get(self.position).cloned(); // Update self.ch directly
+                            return Token { token_type: TokenType::TheoryKeyword, literal: "theory".to_string() };
+                        }
                     }
+                    // If not "theory" followed by a number, or a general identifier
+                    let consumed_len = literal.len();
+                    token = if literal == "theory" { // This handles "theory" by itself
+                        Token { token_type: TokenType::TheoryKeyword, literal }
+                    } else {
+                        Token { token_type: TokenType::Identifier(literal.clone()), literal }
+                    };
+                    self.position += consumed_len;
+                    self.read_position = self.position + 1; // Corrected
+                    self.ch = self.input.get(self.position).cloned(); // Update self.ch directly
+                    return token;
                 } else {
-                    new_token(TokenType::Illegal, c)
+                    self.read_char(); // Advance for illegal char
+                    token = new_token(TokenType::Illegal, c);
                 }
             }
-            None => Token {
+            None => token = Token { // Corrected: Eof literal should be empty string
                 token_type: TokenType::Eof,
                 literal: "".to_string(),
             },
         };
-
-        self.read_char(); // Advance to the next character for the next token
-        token
+        token // Return the token
     }
 }
 

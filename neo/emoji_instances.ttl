@@ -1,0 +1,215 @@
+@prefix : <http://meta-introspector.org/ontology/neo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://meta-introspector.org/ontology/neo/emoji_instances> rdf:type owl:Ontology ;
+    rdfs:comment "Instances of emojis and their mappings within the Meta-Introspector ontology." .
+
+# Instances for Emojis from codex.md
+:emoji_🕵️‍♂️ rdf:type :Emoji ;
+    rdfs:label "🕵️‍♂️" ;
+    :hasConcept :Concept_Audit .
+
+:emoji_💾 rdf:type :Emoji ;
+    rdfs:label "💾" ;
+    :hasConcept :Concept_Commit .
+
+:emoji_🌐 rdf:type :Emoji ;
+    rdfs:label "🌐" ;
+    :hasConcept :Concept_Distributed .
+
+:emoji_😀 rdf:type :Emoji ;
+    rdfs:label "😀" ;
+    :hasConcept :Concept_Emoji .
+
+:emoji_🤝 rdf:type :Emoji ;
+    rdfs:label "🤝" ;
+    :hasConcept :Concept_Equivalence .
+
+:emoji_🔢 rdf:type :Emoji ;
+    rdfs:label "🔢" ;
+    :hasConcept :Concept_GoedelNumber .
+
+:emoji_#️⃣ rdf:type :Emoji ;
+    rdfs:label "#️⃣" ;
+    :hasConcept :Concept_Hash .
+
+:emoji_🔥 rdf:type :Emoji ;
+    rdfs:label "🔥" ;
+    :hasConcept :Concept_Hott .
+
+:emoji_🧐 rdf:type :Emoji ;
+    rdfs:label "🧐" ;
+    :hasConcept :Concept_Lean .
+
+:emoji_🌳 rdf:type :Emoji ;
+    rdfs:label "🌳" ;
+    :hasConcept :Concept_MerkleTree .
+
+:emoji_📦 rdf:type :Emoji ;
+    rdfs:label "📦" ;
+    :hasConcept :Concept_Module .
+
+:emoji_🗺️ rdf:type :Emoji ;
+    rdfs:label "🗺️" ;
+    :hasConcept :Concept_Plan .
+
+:emoji_👣 rdf:type :Emoji ;
+    rdfs:label "👣" ;
+    :hasConcept :Concept_ProofPath .
+
+:emoji_🦀 rdf:type :Emoji ;
+    rdfs:label "🦀" ;
+    :hasConcept :Concept_Rust .
+
+:emoji_📜 rdf:type :Emoji ;
+    rdfs:label "📜" ;
+    :hasConcept :Concept_Theory .
+
+:emoji_✍️ rdf:type :Emoji ;
+    rdfs:label "✍️" ;
+    :hasConcept :Concept_Write .
+
+:emoji_🤫️🔒 rdf:type :Emoji ;
+    rdfs:label "🤫️🔒" ;
+    :hasConcept :Concept_ZKP .
+
+# Instances for Emojis from rust_emoji_map.md (and handling duplicates)
+:emoji_🛣️ rdf:type :Emoji ;
+    rdfs:label "🛣️" ;
+    :hasRustRepresentation :RustEntity_Path .
+
+:emoji_📁 rdf:type :Emoji ;
+    rdfs:label "📁" ;
+    :hasRustRepresentation :RustEntity_PathBuf .
+
+:emoji_✅❌ rdf:type :Emoji ;
+    rdfs:label "✅❌" ;
+    :hasRustRepresentation :RustEntity_Result .
+
+:emoji_📦💥 rdf:type :Emoji ;
+    rdfs:label "📦💥" ;
+    :hasRustRepresentation :RustEntity_BoxError .
+
+:emoji_🚶‍♀️🌳 rdf:type :Emoji ;
+    rdfs:label "🚶‍♀️🌳" ;
+    :hasRustRepresentation :RustEntity_WalkDir .
+
+:emoji_🧹✨ rdf:type :Emoji ;
+    rdfs:label "🧹✨" ;
+    :hasRustRepresentation :RustEntity_KantspellRunKantspell .
+
+:emoji_📖🔓 rdf:type :Emoji ;
+    rdfs:label "📖🔓" ;
+    :hasRustRepresentation :RustEntity_FsFileOpen .
+
+:emoji_🔄 rdf:type :Emoji ;
+    rdfs:label "🔄" ;
+    :hasRustRepresentation :RustEntity_StringReplace .
+
+:emoji_🗣️ rdf:type :Emoji ;
+    rdfs:label "🗣️" ;
+    :hasRustRepresentation :RustEntity_StdProcessCommandNew .
+
+:emoji_➕🌳 rdf:type :Emoji ;
+    rdfs:label "➕🌳" ;
+    :hasRustRepresentation :RustEntity_GitAdd .
+
+:emoji_💾📜 rdf:type :Emoji ;
+    rdfs:label "💾📜" ;
+    :hasRustRepresentation :RustEntity_GitCommit .
+
+:emoji_🏷️ rdf:type :Emoji ;
+    rdfs:label "🏷️" ;
+    :hasRustRepresentation :RustEntity_TokenType .
+
+:emoji_🪙 rdf:type :Emoji ;
+    rdfs:label "🪙" ;
+    :hasRustRepresentation :RustEntity_Token .
+
+:emoji_✂️🗣️ rdf:type :Emoji ;
+    rdfs:label "✂️🗣️" ;
+    :hasRustRepresentation :RustEntity_Lexer .
+
+:emoji_➡️🪙 rdf:type :Emoji ;
+    rdfs:label "➡️🪙" ;
+    :hasRustRepresentation :RustEntity_LexerNextToken .
+
+:emoji_💡 rdf:type :Emoji ;
+    rdfs:label "💡" ;
+    :hasRustRepresentation :RustEntity_Expression .
+
+:emoji_📜📝 rdf:type :Emoji ;
+    rdfs:label "📜📝" ;
+    :hasRustRepresentation :RustEntity_TheoryStatement .
+
+:emoji_🧠🧩 rdf:type :Emoji ;
+    rdfs:label "🧠🧩" ;
+    :hasRustRepresentation :RustEntity_Parser .
+
+:emoji_🧠📜 rdf:type :Emoji ;
+    rdfs:label "🧠📜" ;
+    :hasRustRepresentation :RustEntity_ParserParseTheoryStatement .
+
+:emoji_🧠💡 rdf:type :Emoji ;
+    rdfs:label "🧠💡" ;
+    :hasRustRepresentation :RustEntity_ParserParseExpression .
+
+:emoji_🗣️🔄 rdf:type :Emoji ;
+    rdfs:label "🗣️🔄" ;
+    :hasRustRepresentation :RustEntity_Translations .
+
+:emoji_🗣️🤖 rdf:type :Emoji ;
+    rdfs:label "🗣️🤖" ;
+    :hasRustRepresentation :RustEntity_Translator .
+
+:emoji_🗣️➡️ rdf:type :Emoji ;
+    rdfs:label "🗣️➡️" ;
+    :hasRustRepresentation :RustEntity_TranslatorTranslate .
+
+# Define the Concepts and RustEntities as individuals for linking
+# Concepts from codex.md
+:Concept_Audit rdf:type :Concept ; rdfs:label "audit" .
+:Concept_Commit rdf:type :Concept ; rdfs:label "commit" .
+:Concept_Distributed rdf:type :Concept ; rdfs:label "distributed" .
+:Concept_Emoji rdf:type :Concept ; rdfs:label "emoji" .
+:Concept_Equivalence rdf:type :Concept ; rdfs:label "equivalence" .
+:Concept_GoedelNumber rdf:type :Concept ; rdfs:label "goedel_number" .
+:Concept_Hash rdf:type :Concept ; rdfs:label "hash" .
+:Concept_Hott rdf:type :Concept ; rdfs:label "hott" .
+:Concept_Lean rdf:type :Concept ; rdfs:label "lean" .
+:Concept_MerkleTree rdf:type :Concept ; rdfs:label "merkle_tree" .
+:Concept_Module rdf:type :Concept ; rdfs:label "module" .
+:Concept_Plan rdf:type :Concept ; rdfs:label "plan" .
+:Concept_ProofPath rdf:type :Concept ; rdfs:label "proof_path" .
+:Concept_Rust rdf:type :Concept ; rdfs:label "rust" .
+:Concept_Theory rdf:type :Concept ; rdfs:label "theory" .
+:Concept_Write rdf:type :Concept ; rdfs:label "write" .
+:Concept_ZKP rdf:type :Concept ; rdfs:label "zkp" .
+
+# RustEntities from rust_emoji_map.md
+:RustEntity_Path rdf:type :RustEntity ; rdfs:label "Path" .
+:RustEntity_PathBuf rdf:type :RustEntity ; rdfs:label "PathBuf" .
+:RustEntity_Result rdf:type :RustEntity ; rdfs:label "Result" .
+:RustEntity_BoxError rdf:type :RustEntity ; rdfs:label "Box<dyn std::error.Error>" .
+:RustEntity_WalkDir rdf:type :RustEntity ; rdfs:label "walkdir::WalkDir" .
+:RustEntity_KantspellRunKantspell rdf:type :RustEntity ; rdfs:label "kantspell::run_kantspell" .
+:RustEntity_FsFileOpen rdf:type :RustEntity ; rdfs:label "fs::File::open" .
+:RustEntity_StringReplace rdf:type :RustEntity ; rdfs:label "String::replace" .
+:RustEntity_StdProcessCommandNew rdf:type :RustEntity ; rdfs:label "std::process::Command::new" .
+:RustEntity_GitAdd rdf:type :RustEntity ; rdfs:label "git add" .
+:RustEntity_GitCommit rdf:type :RustEntity ; rdfs:label "git commit" .
+:RustEntity_TokenType rdf:type :RustEntity ; rdfs:label "TokenType" .
+:RustEntity_Token rdf:type :RustEntity ; rdfs:label "Token" .
+:RustEntity_Lexer rdf:type :RustEntity ; rdfs:label "Lexer" .
+:RustEntity_LexerNextToken rdf:type :RustEntity ; rdfs:label "Lexer::next_token" .
+:RustEntity_Expression rdf:type :RustEntity ; rdfs:label "Expression" .
+:RustEntity_TheoryStatement rdf:type :RustEntity ; rdfs:label "TheoryStatement" .
+:RustEntity_Parser rdf:type :RustEntity ; rdfs:label "Parser" .
+:RustEntity_ParserParseTheoryStatement rdf:type :RustEntity ; rdfs:label "Parser::parse_theory_statement" .
+:RustEntity_ParserParseExpression rdf:type :RustEntity ; rdfs:label "Parser::parse_expression" .
+:RustEntity_Translations rdf:type :RustEntity ; rdfs:label "Translations" .
+:RustEntity_Translator rdf:type :RustEntity ; rdfs:label "Translator" .
+:RustEntity_TranslatorTranslate rdf:type :RustEntity ; rdfs:label "Translator::translate" .

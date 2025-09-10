@@ -1,0 +1,1 @@
+theory22=[construct(godel_number, of(system_G)), provability(statement_S, in(system_G), as(turtle_statement, math_statement, emoji_statement, rust_statement, lean_statement)), equivalence(all_statements)]
